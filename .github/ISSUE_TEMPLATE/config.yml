@@ -1,0 +1,9 @@
+# Only the forms can be used: no blank reports.
+blank_issues_enabled: false
+contact_links:
+  - name: Work and business enquiries
+    url: https://omart19.github.io/portfolio/hire.html
+    about: Use the private form on the site. Reports here are public.
+  - name: How-to guides and troubleshooting
+    url: https://omart19.github.io/portfolio/projects/spider.html#how-to
+    about: Each guide ends with fixes for the most common problems.

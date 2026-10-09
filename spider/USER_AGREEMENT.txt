@@ -1,0 +1,46 @@
+S.P.I.D.E.R. user agreement - version 2 (2026-10-08)
+S.P.I.D.E.R. shows this agreement the first time it starts and asks you to accept it.
+
+S.P.I.D.E.R. USER AGREEMENT
+
+Please read this before using S.P.I.D.E.R. By choosing "I agree" you accept it. If you do not agree, do not use S.P.I.D.E.R.
+
+1. WHAT S.P.I.D.E.R. IS
+S.P.I.D.E.R. is software for building, flashing, connecting and controlling robots and other devices, made by Oscar ("the developer"). It is still in development: features can change, and it can contain mistakes.
+
+2. YOUR LICENCE TO USE IT
+S.P.I.D.E.R. is licensed to you, not sold. You may install it and use it for your own projects. You may not copy it for other people, resell it, or take it apart to get at its code or at protected content, except where the law allows this despite this agreement. LICENSE.txt contains the full terms.
+
+3. YOU ARE IN CHARGE OF YOUR HARDWARE
+S.P.I.D.E.R. can write firmware to boards, change their settings, and move motors, servos and other parts. You decide what to connect, flash and run, and you do it at your own risk. Flashing can leave a device unable to start ("bricked") or damage it or devices connected to it. Robots and drones can move unexpectedly and cause injury or damage. Use correct power supplies, keep people, animals and property clear of moving parts, supervise children, and follow the laws and rules where you are (for example for flying drones and for radio devices). Only connect to and change devices you own or have permission to use.
+
+4. NO WARRANTY
+To the extent the law allows, S.P.I.D.E.R. is provided "as is", without warranty of any kind. The developer does not promise that it is free of errors, that it suits a particular purpose, or that it will keep working with any device.
+
+5. LIMITS ON LIABILITY
+To the extent the law allows, the developer is not liable for damage to devices, loss of data, injury, or any indirect or consequential loss that comes from using S.P.I.D.E.R., the firmware it writes, the devices it controls, or content you or others share through it. Where liability cannot be excluded, it is limited to the amount you paid for S.P.I.D.E.R. Some places do not allow these limits; there, your rights as a consumer are not affected.
+
+6. YOUR CONTENT AND SHARING
+You own what you create. When you export a S.P.I.D.E.R. package you choose the licence of each item, and you confirm that you made the content or have the right to share it under those licences. You are responsible for what you share, import, flash and run, including content made by other people.
+Licences and credits travel with shared content. Do not remove or change them, and follow the licence of anything you use. The protection S.P.I.D.E.R. gives "Personal use only" and "Share in S.P.I.D.E.R. only" content makes copying harder but cannot make it impossible, so it is not a guarantee; do not try to get around it. The developer is not responsible for how other people use content you share, or for content other people share with you.
+S.P.I.D.E.R. keeps the original licence and credit with content you export or re-share, including brains, and only lets public-domain (CC0) content be put under a different licence. If you export, share or use content in a way its licence does not allow, you are responsible for that, not the developer.
+
+7. THIRD-PARTY SOFTWARE AND DATA
+S.P.I.D.E.R. includes third-party software under permissive licences (see THIRD_PARTY_NOTICES.md and the licenses folder). Data you load, such as brain connectomes, comes with its own licence and credits, which S.P.I.D.E.R. shows. Some data may only be used for non-commercial purposes. You must follow those licences and keep their credits.
+
+8. NOT ALLOWED
+Do not use S.P.I.D.E.R. to break the law, to hurt people or animals, to damage property, to build weapons, or to access or control devices without permission.
+
+9. PRIVACY
+S.P.I.D.E.R. does not collect personal data. When it checks for updates it downloads a public file from the developer's website; the website's host can see your IP address, as with any website visit. You can turn update checks off in Settings. Connections to your robots stay between your computer and your devices.
+
+10. UPDATES AND CHANGES TO THIS AGREEMENT
+Updates are optional and never install without your OK. If this agreement changes, S.P.I.D.E.R. shows you what changed and asks you to agree again before you continue.
+
+11. ENDING
+You can stop using S.P.I.D.E.R. at any time. If you break this agreement, your licence to use S.P.I.D.E.R. ends.
+
+12. LAW
+This agreement is governed by the laws of the State of California, USA, without regard to its conflict-of-law rules. If any part of it cannot be enforced, the rest still applies.
+
+Questions: https://omart19.github.io/portfolio/support.html

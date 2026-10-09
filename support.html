@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- chrome:head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<!-- /chrome:head -->
+<title>Support · OMART19</title>
+<meta name="description" content="Report a problem with S.P.I.D.E.R., Don't Stop Walking, a robot build or this website.">
+</head>
+<body data-page="support">
+
+<!-- chrome:bar -->
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Oscar: home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 2h24l6 6v24l-6 6H8l-6-6V8z" fill="none" stroke="#ff1f3d" stroke-width="2.5"/><path d="M13 12h14v16H13z" fill="none" stroke="#f0ebf1" stroke-width="2.5"/><path d="M27 12 13 28" stroke="#ff1f3d" stroke-width="2.5"/></svg>
+      <b>OSCAR</b>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="index.html#work" data-nav="work">Work</a>
+      <a href="downloads.html" data-nav="downloads">Downloads</a>
+      <a href="support.html" data-nav="support" aria-current="page">Support</a>
+      <a href="hire.html" data-nav="hire">Hire me</a>
+    </nav>
+    <div class="status" aria-label="Status">
+      <span class="led">Building</span>
+      <span class="clock-wrap">LOCAL <span data-clock>--:--:--</span></span>
+    </div>
+  </div>
+</header>
+<!-- /chrome:bar -->
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">OMART19</a><span aria-hidden="true">/</span><span>Support</span></nav>
+
+  <header class="page-hero solo">
+    <div>
+      <p class="eyebrow">Support</p>
+      <h1>Report a <span>problem</span></h1>
+      <p class="lead">Reports go to my issue tracker on GitHub. Pick the form for what went wrong: each one asks for exactly what I need to find and fix it.</p>
+      <div class="cta">
+        <a class="btn pending" data-link="reports" data-off="Open reports: coming soon" data-on="See open reports ↗"><span data-label>Open reports: coming soon</span></a>
+      </div>
+    </div>
+  </header>
+
+  <section id="forms">
+    <div class="cards">
+      <a class="card edge chamfer pending" data-report="spider-bug.yml"><div class="inner chamfer">
+        <p class="label">Software</p>
+        <h3>S.P.I.D.E.R.</h3>
+        <p>A crash, a flash that fails, a robot that will not connect, or a screen that shows the wrong thing.</p>
+        <span class="go">Open the form ↗</span>
+      </div></a>
+      <a class="card edge chamfer pending" data-report="game-bug.yml"><div class="inner chamfer">
+        <p class="label">Game</p>
+        <h3>Don't Stop Walking</h3>
+        <p>A bug, a desync in co-op, lost items, or anything that breaks a run.</p>
+        <span class="go">Open the form ↗</span>
+      </div></a>
+      <a class="card edge chamfer pending" data-report="robot-build.yml"><div class="inner chamfer">
+        <p class="label">Hardware</p>
+        <h3>Robot build or tutorial</h3>
+        <p>Stuck on a step, a part that does not match, or a robot that will not move.</p>
+        <span class="go">Open the form ↗</span>
+      </div></a>
+      <a class="card edge chamfer pending" data-report="website.yml"><div class="inner chamfer">
+        <p class="label">This site</p>
+        <h3>Website</h3>
+        <p>A broken link, a download that fails, a typo, or a page that looks wrong on your device.</p>
+        <span class="go">Open the form ↗</span>
+      </div></a>
+    </div>
+    <p class="note warn gap-top" data-unless="reports">Reports are not switched on yet. They open with the first public release.</p>
+    <p class="gap-top dl-msg">Have an idea or a request instead? <a class="pending" data-report="idea.yml" data-off="Ideas open with the first release" data-on="Send it here ↗"><span data-label>Ideas open with the first release</span></a></p>
+  </section>
+
+  <section class="sec" id="how">
+    <div class="split">
+      <div class="copy">
+        <p class="eyebrow">Before you report</p>
+        <h2>Help me help you</h2>
+        <ol class="steps-list">
+          <li><strong>Check the fixes first.</strong> Each how-to guide on the <a href="projects/spider.html#how-to">S.P.I.D.E.R. page</a> ends with fixes for common problems, like <a href="tutorials/esp32-s3-servo-ble.html#troubleshooting">this one</a>.</li>
+          <li><strong>Look for the same problem</strong> in the open reports. If it is there, add a comment instead of a new report.</li>
+          <li><strong>One problem per report.</strong> Two problems are two reports.</li>
+          <li><strong>Say how to make it happen again:</strong> the steps, the version, and what you expected.</li>
+        </ol>
+      </div>
+      <div class="panel edge chamfer"><div class="inner chamfer">
+        <h3>Fair-use limits</h3>
+        <p>So that a flood of reports cannot bury the real ones:</p>
+        <ul class="ticks">
+          <li>Reporting needs a free GitHub account.</li>
+          <li>Each account can send 3 reports in 24 hours. Extra reports are closed automatically with a note.</li>
+          <li>No more than 5 open reports per account at a time.</li>
+          <li>Reports from accounts less than a week old are marked for a manual check.</li>
+          <li>Only the forms can be used, so every report has the details needed.</li>
+          <li>If reporting is ever flooded, it is paused for a short time.</li>
+        </ul>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="privacy">
+    <div class="split">
+      <div class="note warn">
+        <strong>Reports are public.</strong> Anyone can read them. Do not post your email, home address, passwords, serial numbers, or logs that show your network or Bluetooth addresses. S.P.I.D.E.R.'s logs are in <span class="mono">%APPDATA%\SPIDER\logs</span>: blank out any addresses before you attach one.
+      </div>
+      <div class="copy">
+        <p><strong>Something private?</strong> For work and business, use the <a href="hire.html">hire form</a>. Supporters can reach me on <a class="pending" data-link="patreon" data-off="Patreon (coming soon)" data-on="Patreon">Patreon (coming soon)</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- chrome:foot -->
+<footer class="foot wrap">
+  <nav aria-label="Footer">
+    <a href="index.html#work">Work</a>
+    <a href="projects/spider.html">S.P.I.D.E.R.</a>
+    <a href="projects/dont-stop-walking.html">Don't Stop Walking</a>
+    <a href="projects/robots.html">Robots</a>
+    <a href="projects/3d.html">3D</a>
+    <a href="downloads.html">Downloads</a>
+    <a href="support.html">Report a problem</a>
+    <a href="hire.html">Hire me</a>
+    <a class="pending" data-link="patreon">Patreon</a>
+    <a class="pending" data-link="youtube">YouTube</a>
+    <a class="pending" data-link="instagram">Instagram</a>
+    <a class="pending" data-link="tiktok">TikTok</a>
+    <a data-link="github" href="https://github.com/Omart19">GitHub</a>
+    <a href="privacy.html">Privacy</a>
+    <a class="pending" data-link="ebay">eBay shop</a>
+  </nav>
+  <div class="legal">
+    <span>© <span data-year>2026</span> OMART19 · all rights reserved</span>
+    <span>Designed and built by hand</span>
+  </div>
+</footer>
+
+<dialog id="viewer" aria-label="Screenshot">
+  <img id="viewer-img" alt="">
+  <p id="viewer-cap"></p>
+</dialog>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<!-- /chrome:foot -->
+</body>
+</html>

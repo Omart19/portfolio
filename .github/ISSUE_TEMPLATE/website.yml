@@ -1,0 +1,23 @@
+name: Website problem
+description: A broken link, a download that fails, a typo, or a page that looks wrong.
+title: "[Site] "
+labels: ["website"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page address
+      placeholder: "https://omart19.github.io/portfolio/downloads.html"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and browser
+      placeholder: "iPhone 15, Safari"

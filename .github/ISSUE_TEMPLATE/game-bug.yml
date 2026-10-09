@@ -1,0 +1,86 @@
+name: Don't Stop Walking bug
+description: A bug, a co-op desync, lost items, or anything that breaks a run.
+title: "[Game] "
+labels: ["game", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for playtesting. **Reports are public:** do not paste emails, passwords or your Steam login.
+        Fair use: 3 reports per account per day, 5 open at a time. Extra reports are closed automatically.
+  - type: input
+    id: version
+    attributes:
+      label: Game version or build date
+      placeholder: "2026-10-08"
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: How you were playing
+      options:
+        - Solo
+        - Co-op, I was the host
+        - Co-op, I joined someone
+    validations:
+      required: true
+  - type: dropdown
+    id: players
+    attributes:
+      label: Players in the party
+      options: ["1", "2", "3", "4", "5", "6"]
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where it happened
+      options:
+        - In the outpost hub
+        - On a run
+        - Inventory, backpack or crafting
+        - Joining or leaving a party
+        - Menus or settings
+        - Somewhere else
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to make it happen again
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: media
+    attributes:
+      label: Screenshot or clip
+      description: Drag an image or a short video here. It helps a lot.
+  - type: input
+    id: pc
+    attributes:
+      label: PC
+      placeholder: "CPU, graphics card, RAM"
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: "If the game wrote one: %APPDATA%\\Godot\\app_userdata\\Don’t Stop Walking\\logs\\godot.log"
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before sending
+      options:
+        - label: I removed personal details from this report.
+          required: true
+        - label: I searched the open reports for the same bug.
+          required: true

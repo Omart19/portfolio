@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- chrome:head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<!-- /chrome:head -->
+<title>OMART19</title>
+<meta name="description" content="OMART19 - creative technologist. Games, robots and the tools that run them: code, 3D design and hardware, built by one person.">
+</head>
+<body data-page="home">
+
+<!-- chrome:bar -->
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Oscar: home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 2h24l6 6v24l-6 6H8l-6-6V8z" fill="none" stroke="#ff1f3d" stroke-width="2.5"/><path d="M13 12h14v16H13z" fill="none" stroke="#f0ebf1" stroke-width="2.5"/><path d="M27 12 13 28" stroke="#ff1f3d" stroke-width="2.5"/></svg>
+      <b>OSCAR</b>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="index.html#work" data-nav="work">Work</a>
+      <a href="downloads.html" data-nav="downloads">Downloads</a>
+      <a href="support.html" data-nav="support">Support</a>
+      <a href="hire.html" data-nav="hire">Hire me</a>
+    </nav>
+    <div class="status" aria-label="Status">
+      <span class="led">Building</span>
+      <span class="clock-wrap">LOCAL <span data-clock>--:--:--</span></span>
+    </div>
+  </div>
+</header>
+<!-- /chrome:bar -->
+
+<main class="wrap" id="top">
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Creative technologist · Code · 3D · Hardware</p>
+      <h1>Code.<br>Model.<br><span>Build.</span></h1>
+      <p class="lead">I make games, robots and the tools that run them. I write the code, model the 3D, wire the hardware and ship the result.</p>
+      <p class="lead dim">Most of it never made it onto paper, so here it is, running.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">See the work</a>
+        <a class="btn" href="hire.html">Hire me</a>
+      </div>
+    </div>
+    <figure class="feed">
+      <div class="corners">
+        <button class="shot screen" type="button" data-full="assets/img/spider-deck.jpg" data-caption="S.P.I.D.E.R. - Control Deck driving a real servo robot over Bluetooth">
+          <img src="assets/img/spider-deck.jpg" alt="S.P.I.D.E.R. dashboard: the Control Deck with servo controls, the neural lab and the Bluetooth link hub" width="1600" height="850">
+        </button>
+      </div>
+      <figcaption><span class="rec">Live · S.P.I.D.E.R.</span><span>Control deck · servo online</span></figcaption>
+    </figure>
+  </section>
+
+  <div class="stack" aria-label="Tools and technologies">
+    <span>C# / .NET</span><span>Godot</span><span>Python</span><span>C++</span><span>MicroPython</span><span>Blender</span>
+    <span>glTF</span><span>ESP32-S3</span><span>Bluetooth LE</span><span>Multiplayer</span><span>Shaders</span><span>Servos</span>
+  </div>
+
+  <!-- ===================================================== WORK -->
+  <section class="sec" id="work">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Selected work · 4 projects</p>
+        <h2>Work</h2>
+      </div>
+      <p>Everything here was designed, modeled, coded and built by me. Open a project for the full story, more pictures, videos and guides.</p>
+    </div>
+
+    <div class="dossiers">
+
+      <article class="dossier edge chamfer" id="dont-stop-walking">
+        <div class="inner chamfer">
+          <div class="media">
+            <button class="shot" type="button" data-full="assets/img/dsw-storm.jpg" data-caption="Don't Stop Walking - running ahead of the purple storm">
+              <img src="assets/img/dsw-storm.jpg" alt="A survivor with a stone axe sprints down a canyon road ahead of a purple storm wall" loading="lazy" width="1600" height="900">
+            </button>
+            <div class="thumbs">
+              <button class="shot" type="button" data-full="assets/img/dsw-coop.jpg" data-caption="Co-op: two survivors on the road">
+                <img src="assets/img/dsw-coop.jpg" alt="Two survivors together on the road, with the game's HUD" loading="lazy" width="1200" height="675">
+              </button>
+              <button class="shot" type="button" data-full="assets/img/dsw-grabber.jpg" data-caption="The Grabber drags a teammate away">
+                <img src="assets/img/dsw-grabber.jpg" alt="A grabber monster drags one survivor while the other fights back" loading="lazy" width="1200" height="675">
+              </button>
+              <button class="shot" type="button" data-full="assets/img/dsw-deer.jpg" data-caption="Procedural wildlife">
+                <img src="assets/img/dsw-deer.jpg" alt="A deer running across the road" loading="lazy" width="1200" height="675">
+              </button>
+            </div>
+          </div>
+          <div class="info">
+            <p class="tag">Game · co-op survival</p>
+            <h3><a href="projects/dont-stop-walking.html">Don't Stop Walking</a></h3>
+            <p>A co-op survival game where a purple storm keeps pushing you forward. Up to six players share an outpost hub, head out on procedural runs, hunt, chop and craft, and extract whatever they can carry before the storm catches them.</p>
+            <dl class="spec">
+              <div><dt>Engine</dt><dd>Godot 4 · C#</dd></div>
+              <div><dt>Players</dt><dd>Solo or co-op, up to 6</dd></div>
+              <div><dt>Built</dt><dd>Networking, ragdoll physics, procedural worlds, crafting, inventory, all models</dd></div>
+              <div><dt>Status</dt><dd><span class="chip hot">In development · Steam</span></dd></div>
+            </dl>
+            <a class="btn" href="projects/dont-stop-walking.html">Open project <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="dossier edge chamfer" id="spider">
+        <div class="inner chamfer">
+          <div class="media">
+            <button class="shot" type="button" data-full="assets/img/spider-robot.jpg" data-caption="S.P.I.D.E.R. - a robot's screen with its live 3D twin and telemetry">
+              <img src="assets/img/spider-robot.jpg" alt="S.P.I.D.E.R. robot screen: live 3D twin of a servo, telemetry table, console and bridge panels" loading="lazy" width="1200" height="638">
+            </button>
+            <div class="thumbs">
+              <button class="shot" type="button" data-full="assets/img/spider-virtual.jpg" data-caption="Control Deck for a walking robot: joystick, toggles, sliders">
+                <img src="assets/img/spider-virtual.jpg" alt="Control Deck with a joystick, walk toggle, speed slider, LED colour list and battery readout" loading="lazy" width="1100" height="717">
+              </button>
+              <button class="shot" type="button" data-full="assets/img/spider-twin.jpg" data-caption="The servo's 3D twin follows the real one">
+                <img src="assets/img/spider-twin.jpg" alt="A robot panel showing a servo's 3D twin sweeping" loading="lazy" width="1093" height="682">
+              </button>
+              <button class="shot" type="button" data-full="assets/img/spider-deck.jpg" data-caption="The full command center">
+                <img src="assets/img/spider-deck.jpg" alt="The full S.P.I.D.E.R. window" loading="lazy" width="1600" height="850">
+              </button>
+            </div>
+          </div>
+          <div class="info">
+            <p class="tag">Software · robotics</p>
+            <h3><a href="projects/spider.html">S.P.I.D.E.R.</a></h3>
+            <p>A command center for robots: SBC &amp; Peripheral Interface for Drone Engineering &amp; Robotics. It flashes ESP32 boards with its own flasher, connects them over Bluetooth with no pairing, gives every robot a live 3D twin, and puts a control deck on screen that you can drive with a gamepad or program in Python, C# or C++.</p>
+            <dl class="spec">
+              <div><dt>Built with</dt><dd>Godot 4.7 · .NET · its own ESP32 flasher</dd></div>
+              <div><dt>Connects</dt><dd>USB, Wi-Fi, Bluetooth LE</dd></div>
+              <div><dt>Also has</dt><dd>Code editor with live checking, dockable windows, a fly-brain neural lab</dd></div>
+              <div><dt>Status</dt><dd><span class="chip hot">In development · early access</span></dd></div>
+            </dl>
+            <a class="btn" href="projects/spider.html">Open project <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="dossier edge chamfer" id="robots">
+        <div class="inner chamfer">
+          <div class="media">
+            <button class="shot" type="button" data-full="assets/tutorials/esp32-s3-servo-ble/13-robot-panel-sweep.png" data-caption="Build 01 on its robot screen: the servo sweeping, with its live 3D twin">
+              <img src="assets/tutorials/esp32-s3-servo-ble/13-robot-panel-sweep.png" alt="The servo robot's screen in S.P.I.D.E.R.: the servo sweeping with its live 3D twin" loading="lazy">
+            </button>
+          </div>
+          <div class="info">
+            <p class="tag">Hardware · robots</p>
+            <h3><a href="projects/robots.html">Robot builds</a></h3>
+            <p>The robots S.P.I.D.E.R. was made for. Each one starts as a build sheet, gets wired on the bench, and is driven from the dashboard over Bluetooth. A servo rig on an ESP32-S3 runs today; a four-legged walker, a six-legged walker and a drone are in the works.</p>
+            <dl class="spec">
+              <div><dt>Boards</dt><dd>ESP32-S3, ESP32-C6</dd></div>
+              <div><dt>Firmware</dt><dd>MicroPython, ESP-IDF</dd></div>
+              <div><dt>Motion</dt><dd>Hobby servos (SG90 / MG90S), smooth tracking</dd></div>
+              <div><dt>Status</dt><dd><span class="chip live">On the bench</span></dd></div>
+            </dl>
+            <a class="btn" href="projects/robots.html">Parts &amp; builds <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="dossier edge chamfer" id="3d">
+        <div class="inner chamfer">
+          <div class="media">
+            <button class="shot" type="button" data-full="assets/img/3d-items.jpg" data-caption="Game props: knife, bow, slingshot, stone sword, torch">
+              <img src="assets/img/3d-items.jpg" alt="A row of hand-made game props on a dark stage with a red glow: knife, bow, slingshot, stone sword and torch" loading="lazy" width="1600" height="900">
+            </button>
+            <div class="thumbs">
+              <button class="shot" type="button" data-full="assets/img/dsw-character.jpg" data-caption="Survivor character in grass armour with a stone axe">
+                <img src="assets/img/dsw-character.jpg" alt="Close-up of a survivor character in grass armour holding a stone axe" loading="lazy" width="1200" height="675">
+              </button>
+              <button class="shot" type="button" data-full="assets/img/3d-slingshot.jpg" data-caption="Slingshot">
+                <img src="assets/img/3d-slingshot.jpg" alt="A wooden slingshot model" loading="lazy" width="1000" height="562">
+              </button>
+              <button class="shot" type="button" data-full="assets/img/3d-sword.jpg" data-caption="Stone sword">
+                <img src="assets/img/3d-sword.jpg" alt="A stone sword with a wooden hilt" loading="lazy" width="1000" height="562">
+              </button>
+            </div>
+          </div>
+          <div class="info">
+            <p class="tag">3D design</p>
+            <h3><a href="projects/3d.html">Models &amp; worlds</a></h3>
+            <p>Characters, gear and props modeled in Blender and taken all the way into the engine: rigged, animated, given physics and lit to match the game. Some creatures, like the deer, are generated in code instead of modeled.</p>
+            <dl class="spec">
+              <div><dt>Pipeline</dt><dd>Blender → glTF → Godot</dd></div>
+              <div><dt>Work</dt><dd>Characters, armour, weapons, tools, props</dd></div>
+              <div><dt>In engine</dt><dd>Skeletons, ragdolls, animation import, shaders, procedural creatures</dd></div>
+              <div><dt>Status</dt><dd><span class="chip">Ongoing</span></dd></div>
+            </dl>
+            <a class="btn" href="projects/3d.html">Open gallery <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===================================================== TOOLS -->
+  <section class="sec" id="tools">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Behind the work</p>
+        <h2>Tools I build</h2>
+      </div>
+      <p>When the right tool does not exist, I make it. These run behind the projects above.</p>
+    </div>
+    <div class="tools">
+      <article class="tool edge chamfer"><div class="inner chamfer">
+        <h3>Native ESP32 flasher</h3>
+        <p>Talks to the ESP32's boot ROM directly from C#: resets the board, writes firmware, verifies it. No outside tools.</p>
+        <span class="chip">C# · serial</span>
+      </div></article>
+      <article class="tool edge chamfer"><div class="inner chamfer">
+        <h3>Netlab</h3>
+        <p>Bots that play the game's multiplayer in fifteen party shapes and report every desync and duplicate.</p>
+        <span class="chip">C# · Python</span>
+      </div></article>
+      <article class="tool edge chamfer"><div class="inner chamfer">
+        <h3>Storefront rig</h3>
+        <p>Drives the real game with a scripted player and cinematic cameras to capture store screenshots and clips.</p>
+        <span class="chip">Godot · C#</span>
+      </div></article>
+      <article class="tool edge chamfer"><div class="inner chamfer">
+        <h3>CodeGraph</h3>
+        <p>Reads a C# codebase and maps how its classes connect, in an interactive viewer.</p>
+        <span class="chip">Roslyn · Godot</span>
+      </div></article>
+    </div>
+  </section>
+
+  <!-- ===================================================== SKILLS -->
+  <section class="sec" id="skills">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Capabilities</p>
+        <h2>One person, three trades</h2>
+      </div>
+    </div>
+    <div class="skills">
+      <article class="skill edge chamfer"><div class="inner chamfer">
+        <h3>Code <small>SOFTWARE</small></h3>
+        <ul class="ticks">
+          <li>C# and .NET, Godot 4</li>
+          <li>Python, C++, MicroPython</li>
+          <li>Multiplayer networking</li>
+          <li>Tools, editors and dashboards</li>
+          <li>Physics, AI and procedural generation</li>
+        </ul>
+      </div></article>
+      <article class="skill edge chamfer"><div class="inner chamfer">
+        <h3>3D <small>DESIGN</small></h3>
+        <ul class="ticks">
+          <li>Modeling in Blender</li>
+          <li>Rigging and animation into the engine</li>
+          <li>glTF asset pipelines</li>
+          <li>Shaders and stylised lighting</li>
+          <li>Designing parts before they are built</li>
+        </ul>
+      </div></article>
+      <article class="skill edge chamfer"><div class="inner chamfer">
+        <h3>Hardware <small>BUILD</small></h3>
+        <ul class="ticks">
+          <li>ESP32-S3 and ESP32-C6 boards</li>
+          <li>Servos, power and wiring</li>
+          <li>Bluetooth LE and Wi-Fi links</li>
+          <li>Firmware flashing and debugging</li>
+          <li>Building to my own designs</li>
+        </ul>
+      </div></article>
+    </div>
+  </section>
+
+  <!-- ===================================================== PROCESS -->
+  <section class="sec" id="process">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">How a project moves</p>
+        <h2>Process</h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><b>01</b><h3>Design</h3><p>Pin down what it has to do and sketch how it should look and work.</p></div>
+      <div class="step"><b>02</b><h3>Model</h3><p>Build it in 3D first: the parts, how they fit, how it looks in motion.</p></div>
+      <div class="step"><b>03</b><h3>Build</h3><p>Write the code, wire the electronics, flash the boards, put it together.</p></div>
+      <div class="step"><b>04</b><h3>Prove</h3><p>Test it hard. Bots play the game, robots run on the bench, until it holds up.</p></div>
+    </div>
+  </section>
+
+  <!-- ===================================================== WHERE TO GET IT -->
+  <section class="sec" id="get">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Releases</p>
+        <h2>Where to get it</h2>
+      </div>
+      <p>Links go live here as each project releases.</p>
+    </div>
+    <div class="get">
+      <div class="get-row">
+        <h3><a href="projects/dont-stop-walking.html">Don't Stop Walking</a></h3>
+        <p class="what">Co-op survival game for Windows</p>
+        <span class="chip hot">Coming soon</span>
+        <p class="how"><a class="pending" data-link="steam" data-off="Steam · page coming soon" data-on="Wishlist on Steam ↗">Steam · page coming soon</a></p>
+      </div>
+      <div class="get-row">
+        <h3><a href="projects/spider.html">S.P.I.D.E.R.</a></h3>
+        <p class="what">Robotics command center for Windows and Linux</p>
+        <span class="chip hot">Early access</span>
+        <p class="how"><a href="downloads.html">Downloads page →</a></p>
+      </div>
+      <div class="get-row">
+        <h3><a href="projects/robots.html">Robot builds</a></h3>
+        <p class="what">Parts lists and builds</p>
+        <span class="chip">In progress</span>
+        <p class="how"><a href="projects/robots.html#parts">Parts list →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== CONTACT -->
+  <section class="sec" id="contact">
+    <div class="contact edge chamfer">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Let's build something</h2>
+        <p>Hiring, a collaboration, or a project that needs code, 3D and hardware done by the same hands: use the form. To follow the work as it happens, join me on Patreon.</p>
+      </div>
+      <div class="links">
+        <a class="link" href="hire.html"><span>Employers</span><b>Hire me · send a brief</b></a>
+        <a class="link pending" data-link="patreon" data-off="coming soon" data-on="Join on Patreon ↗"><span>Patreon</span><b data-label>coming soon</b></a>
+        <a class="link" data-link="github" href="https://github.com/Omart19"><span>GitHub</span><b>@Omart19</b></a>
+        <a class="link" href="support.html"><span>Support</span><b>Report a problem</b></a>
+        <nav class="socials" aria-label="Social">
+          <a class="pending" data-link="youtube">YouTube</a>
+          <a class="pending" data-link="instagram">Instagram</a>
+          <a class="pending" data-link="tiktok">TikTok</a>
+          <a class="pending" data-link="ebay">eBay shop</a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- chrome:foot -->
+<footer class="foot wrap">
+  <nav aria-label="Footer">
+    <a href="index.html#work">Work</a>
+    <a href="projects/spider.html">S.P.I.D.E.R.</a>
+    <a href="projects/dont-stop-walking.html">Don't Stop Walking</a>
+    <a href="projects/robots.html">Robots</a>
+    <a href="projects/3d.html">3D</a>
+    <a href="downloads.html">Downloads</a>
+    <a href="support.html">Report a problem</a>
+    <a href="hire.html">Hire me</a>
+    <a class="pending" data-link="patreon">Patreon</a>
+    <a class="pending" data-link="youtube">YouTube</a>
+    <a class="pending" data-link="instagram">Instagram</a>
+    <a class="pending" data-link="tiktok">TikTok</a>
+    <a data-link="github" href="https://github.com/Omart19">GitHub</a>
+    <a href="privacy.html">Privacy</a>
+    <a class="pending" data-link="ebay">eBay shop</a>
+  </nav>
+  <div class="legal">
+    <span>© <span data-year>2026</span> OMART19 · all rights reserved</span>
+    <span>Designed and built by hand</span>
+  </div>
+</footer>
+
+<dialog id="viewer" aria-label="Screenshot">
+  <img id="viewer-img" alt="">
+  <p id="viewer-cap"></p>
+</dialog>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<!-- /chrome:foot -->
+</body>
+</html>

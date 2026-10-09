@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- chrome:head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<!-- /chrome:head -->
+<title>S.P.I.D.E.R. · OMART19</title>
+<meta name="description" content="S.P.I.D.E.R. is a command center for robots: it flashes ESP32 boards, connects them over Bluetooth with no pairing, gives each one a live 3D twin and a control deck.">
+</head>
+<body data-page="work">
+
+<!-- chrome:bar -->
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Oscar: home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 2h24l6 6v24l-6 6H8l-6-6V8z" fill="none" stroke="#ff1f3d" stroke-width="2.5"/><path d="M13 12h14v16H13z" fill="none" stroke="#f0ebf1" stroke-width="2.5"/><path d="M27 12 13 28" stroke="#ff1f3d" stroke-width="2.5"/></svg>
+      <b>OSCAR</b>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="../index.html#work" data-nav="work" aria-current="page">Work</a>
+      <a href="../downloads.html" data-nav="downloads">Downloads</a>
+      <a href="../support.html" data-nav="support">Support</a>
+      <a href="../hire.html" data-nav="hire">Hire me</a>
+    </nav>
+    <div class="status" aria-label="Status">
+      <span class="led">Building</span>
+      <span class="clock-wrap">LOCAL <span data-clock>--:--:--</span></span>
+    </div>
+  </div>
+</header>
+<!-- /chrome:bar -->
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">OMART19</a><span aria-hidden="true">/</span><a href="../index.html#work">Work</a><span aria-hidden="true">/</span><span>S.P.I.D.E.R.</span></nav>
+
+  <header class="page-hero">
+    <div>
+      <p class="eyebrow">Software · robotics</p>
+      <h1>S.P.I.D.E.R.<small>SBC &amp; Peripheral Interface for Drone Engineering &amp; Robotics</small></h1>
+      <p class="lead">A command center for building, flashing, connecting and watching robots. Plug in an ESP32, flash it from the app, and it shows up on the dashboard over Bluetooth by itself, with a live 3D twin and controls you can drive with a gamepad.</p>
+      <div class="facts">
+        <span class="chip hot">Early access</span>
+        <span class="chip">Windows · Linux</span>
+        <span class="chip">USB · Wi-Fi · Bluetooth LE</span>
+        <span class="chip">Godot 4.7 · .NET</span>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#download">Download</a>
+        <a class="btn" href="#how-to">How-to</a>
+        <a class="btn pending" data-report="spider-bug.yml" data-off="Reports open soon" data-on="Report a problem"><span data-label>Reports open soon</span></a>
+      </div>
+    </div>
+    <figure class="feed">
+      <div class="corners">
+        <button class="shot screen" type="button" data-full="../assets/img/spider-robot.jpg" data-caption="A robot's screen: real-size 3D twin, telemetry, Control Deck, console">
+          <img src="../assets/img/spider-robot.jpg" alt="S.P.I.D.E.R. robot screen: real-size 3D twin of an MG90S servo, telemetry table, Control Deck and console" width="1200" height="638">
+        </button>
+      </div>
+      <figcaption><span class="rec">Live · servotest</span><span>Bluetooth LE · 3D twin</span></figcaption>
+    </figure>
+  </header>
+
+  <!-- ===================================================== SCREENS -->
+  <section class="sec tight" id="screens">
+    <div class="sec-head small">
+      <div>
+        <p class="eyebrow">Screens · click to enlarge</p>
+        <h2>Inside the app</h2>
+      </div>
+      <p>Every screenshot is from a real session, with real hardware or S.P.I.D.E.R.'s virtual robots. Network and Bluetooth addresses are blacked out.</p>
+    </div>
+    <div class="gallery">
+      <figure class="wide">
+        <button class="shot" type="button" data-full="../assets/img/spider-deck.jpg" data-caption="The command center: Control Deck, Neural Lab and Link Hub">
+          <img src="../assets/img/spider-deck.jpg" alt="The full S.P.I.D.E.R. window with the Control Deck, neural lab and Bluetooth link hub" loading="lazy">
+        </button>
+        <figcaption>The command center</figcaption>
+      </figure>
+      <figure>
+        <button class="shot" type="button" data-full="../assets/img/spider-virtual.jpg" data-caption="Control Deck for a walking robot: joystick, toggles, sliders">
+          <img src="../assets/img/spider-virtual.jpg" alt="Control Deck with a joystick, walk toggle, speed slider, LED colour list and battery readout" loading="lazy">
+        </button>
+        <figcaption>Control Deck · walker</figcaption>
+      </figure>
+      <figure>
+        <button class="shot" type="button" data-full="../assets/img/spider-twin.jpg" data-caption="The servo's 3D twin follows the real one">
+          <img src="../assets/img/spider-twin.jpg" alt="A robot panel showing the MG90S servo's 3D twin at real size while it sweeps" loading="lazy">
+        </button>
+        <figcaption>Live 3D twin</figcaption>
+      </figure>
+      <figure>
+        <button class="shot" type="button" data-full="../assets/tutorials/esp32-s3-servo-ble/01-spider-flash-bay-layout.png" data-caption="Flash Bay: the built-in ESP32 flasher next to the Serial Monitor">
+          <img src="../assets/tutorials/esp32-s3-servo-ble/01-spider-flash-bay-layout.png" alt="The Flash Bay layout with the flasher, Serial Monitor and Console" loading="lazy">
+        </button>
+        <figcaption>Flash Bay</figcaption>
+      </figure>
+      <figure>
+        <button class="shot" type="button" data-full="../assets/tutorials/esp32-s3-servo-ble/07-flash-done.png" data-caption="Firmware written and verified, no esptool needed">
+          <img src="../assets/tutorials/esp32-s3-servo-ble/07-flash-done.png" alt="The flasher reporting a finished, verified write" loading="lazy">
+        </button>
+        <figcaption>Flash, verified</figcaption>
+      </figure>
+      <figure>
+        <button class="shot" type="button" data-full="../assets/tutorials/esp32-s3-servo-ble/11-link-hub-bluetooth.png" data-caption="Link Hub: a robot connected over this PC's own Bluetooth">
+          <img src="../assets/tutorials/esp32-s3-servo-ble/11-link-hub-bluetooth.png" alt="Link Hub with Bluetooth LE auto-connect on and a robot connected" loading="lazy">
+        </button>
+        <figcaption>Link Hub · Bluetooth LE</figcaption>
+      </figure>
+      <figure>
+        <button class="shot" type="button" data-full="../assets/tutorials/control-deck-and-controllers/04-edit-mode-inspector.png" data-caption="Edit mode: change any control, its command and its range">
+          <img src="../assets/tutorials/control-deck-and-controllers/04-edit-mode-inspector.png" alt="The Control Deck in edit mode with the control inspector open" loading="lazy">
+        </button>
+        <figcaption>Deck edit mode</figcaption>
+      </figure>
+      <figure>
+        <button class="shot" type="button" data-full="../assets/tutorials/control-deck-and-controllers/07-mapped.png" data-caption="A game controller stick mapped to the servo slider">
+          <img src="../assets/tutorials/control-deck-and-controllers/07-mapped.png" alt="A controller input mapped to a deck control" loading="lazy">
+        </button>
+        <figcaption>Controller mapping</figcaption>
+      </figure>
+      <figure>
+        <button class="shot" type="button" data-full="../assets/tutorials/control-deck-and-controllers/10-script-in-code-forge.png" data-caption="Code Forge: a deck script with live error checking">
+          <img src="../assets/tutorials/control-deck-and-controllers/10-script-in-code-forge.png" alt="Code Forge editing a deck script" loading="lazy">
+        </button>
+        <figcaption>Code Forge</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================================================== FEATURES -->
+  <section class="sec" id="features">
+    <div class="sec-head small">
+      <div>
+        <p class="eyebrow">What it does</p>
+        <h2>One window, the whole robot</h2>
+      </div>
+      <p>Every section is a panel you can dock, tab, or pull out into its own window. Five built-in layouts, plus your own.</p>
+    </div>
+    <div class="cards">
+      <article class="card edge chamfer"><div class="inner chamfer">
+        <p class="label">Flash Bay</p>
+        <h3>Its own ESP32 flasher</h3>
+        <p>Talks to the chip's boot ROM directly: detects the chip and flash size, erases, writes, verifies. No esptool, no Arduino.</p>
+      </div></article>
+      <article class="card edge chamfer"><div class="inner chamfer">
+        <p class="label">Link Hub</p>
+        <h3>Bluetooth with no pairing</h3>
+        <p>Robots connect over the PC's own Bluetooth, USB or Wi-Fi, and come back by themselves after a reset, in about five seconds.</p>
+      </div></article>
+      <article class="card edge chamfer"><div class="inner chamfer">
+        <p class="label">Robot screens</p>
+        <h3>A live 3D twin</h3>
+        <p>Each robot gets gauges, telemetry graphs, a camera view, a packet inspector and a 3D model that moves with the real one.</p>
+      </div></article>
+      <article class="card edge chamfer"><div class="inner chamfer">
+        <p class="label">Control Deck</p>
+        <h3>Controls you can drive</h3>
+        <p>Sliders, buttons, toggles and a joystick per robot. Map a gamepad or an ESP32 controller, or script it in Python, C# or C++.</p>
+      </div></article>
+      <article class="card edge chamfer"><div class="inner chamfer">
+        <p class="label">Code Forge</p>
+        <h3>An editor that checks as you type</h3>
+        <p>C#, Python, C++, JSON and Markdown with live errors and quick fixes. Run a script on the PC, or send it to the board in one click.</p>
+      </div></article>
+      <article class="card edge chamfer"><div class="inner chamfer">
+        <p class="label">Serial Monitor</p>
+        <h3>See what the board says</h3>
+        <p>Text and hex terminal with reset lines and colour-coded firmware logs. Attach a USB board as a robot link.</p>
+      </div></article>
+      <article class="card edge chamfer"><div class="inner chamfer">
+        <p class="label">Neural Lab</p>
+        <h3>A fly brain in 3D</h3>
+        <p>Loads real insect connectome data, draws it in 3D and runs a learning two-brain simulation, with each dataset's licence flagged.</p>
+      </div></article>
+      <article class="card edge chamfer"><div class="inner chamfer">
+        <p class="label">Bridge</p>
+        <h3>Scriptable from outside</h3>
+        <p>A switchable, token-protected local API: tools and AI assistants can run every command, with hardware actions behind a second switch.</p>
+      </div></article>
+    </div>
+  </section>
+
+  <!-- ===================================================== TUTORIALS -->
+  <section class="sec" id="how-to">
+    <div class="sec-head small">
+      <div>
+        <p class="eyebrow">Step by step · every step tested</p>
+        <h2>How-to</h2>
+      </div>
+      <p>Each guide was run start to finish, and its screenshots come from that run. Where a virtual robot stood in for the real board, the guide says so.</p>
+    </div>
+    <div class="cards three">
+      <a class="card edge chamfer" href="../tutorials/esp32-s3-servo-ble.html"><div class="inner chamfer">
+        <div class="pic"><img src="../assets/tutorials/esp32-s3-servo-ble/13-robot-panel-sweep.png" alt="A servo sweeping in the robot panel" loading="lazy"></div>
+        <p class="label">About 10 minutes · hardware</p>
+        <h3>Flash an ESP32-S3 and drive a servo over Bluetooth</h3>
+        <p>From a blank board to a servo that moves from the dashboard, with a live 3D twin. No pairing, no Arduino, no esptool.</p>
+        <span class="go">Open tutorial →</span>
+      </div></a>
+      <a class="card edge chamfer" href="../tutorials/control-deck-and-controllers.html"><div class="inner chamfer">
+        <div class="pic"><img src="../assets/tutorials/control-deck-and-controllers/08-stick-drives-servo.png" alt="A controller stick driving the servo" loading="lazy"></div>
+        <p class="label">About 15 minutes · controls</p>
+        <h3>Control Deck, gamepads and ESP32 controllers</h3>
+        <p>Build on-screen controls, map a game controller to them, and program the deck in Python, C# or C++.</p>
+        <span class="go">Open tutorial →</span>
+      </div></a>
+      <a class="card edge chamfer" href="../tutorials/import-3d-models.html"><div class="inner chamfer">
+        <div class="pic"><img src="../assets/tutorials/import-3d-models/03-robot-screen-own-model.png" alt="Your own servo model in the robot screen's 3D twin" loading="lazy"></div>
+        <p class="label">About 20 minutes · 3D</p>
+        <h3>Import your own 3D models</h3>
+        <p>Rig it in Blender, export it at real size, and your robot's 3D twin moves the way the real one does.</p>
+        <span class="go">Open tutorial →</span>
+      </div></a>
+    </div>
+    <p class="eyebrow gap-top">Wiring sheets · click to enlarge</p>
+    <div class="gallery two gap-top">
+      <figure>
+        <button class="shot contain" type="button" data-full="../assets/img/build-wiring.svg" data-caption="Servo on a breadboard power module: signal from ESP32-S3 pin 4, power from the module, shared ground">
+          <img src="../assets/img/build-wiring.svg" alt="Wiring diagram: ESP32-S3 pin 4 to the servo signal, power module rails to servo power, shared ground" loading="lazy">
+        </button>
+        <figcaption>Servo on a breadboard power module</figcaption>
+      </figure>
+      <figure>
+        <button class="shot contain" type="button" data-full="../assets/tutorials/hardware/wiring-esp32-s3-mg90s.svg" data-caption="Servo wired straight to the ESP32-S3">
+          <img src="../assets/tutorials/hardware/wiring-esp32-s3-mg90s.svg" alt="Wiring diagram: the servo wired straight to the ESP32-S3" loading="lazy">
+        </button>
+        <figcaption>Servo wired straight to the board</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================================================== DOWNLOAD -->
+  <section class="sec" id="download">
+    <div class="sec-head small">
+      <div>
+        <p class="eyebrow">Get it</p>
+        <h2>Download</h2>
+      </div>
+    </div>
+    <div class="split">
+      <div class="dl edge chamfer" data-download="spider" data-none="There is no public download yet. S.P.I.D.E.R. is in early access: the first build will appear here as soon as it is released.">
+        <div class="inner chamfer">
+          <div class="dl-top"><h3>S.P.I.D.E.R.</h3><span class="chip" data-dl-chip>Checking</span></div>
+          <div class="dl-meta" data-dl-meta hidden><span>Version <b data-dl-version></b></span><span>Released <b data-dl-date></b></span></div>
+          <p class="dl-msg" data-dl-msg>Looking for the latest release...</p>
+          <div class="cta">
+            <a class="btn primary pending" data-dl-file="windows-x86_64" data-off="Windows: not released yet"><span data-label>Windows: not released yet</span></a>
+            <a class="btn pending" data-dl-file="linux-x86_64" data-off="Linux: not released yet"><span data-label>Linux: not released yet</span></a>
+          </div>
+          <details class="dl-hashes" data-dl-hashes hidden>
+            <summary>Check a download by hand (SHA-256)</summary>
+            <dl data-dl-hashlist></dl>
+          </details>
+          <pre class="dl-notes" data-dl-notes hidden></pre>
+        </div>
+      </div>
+      <div class="panel edge chamfer"><div class="inner chamfer">
+        <h3>What you need</h3>
+        <dl class="spec">
+          <div><dt>System</dt><dd>Windows 10 or 11, 64-bit. Linux build planned.</dd></div>
+          <div><dt>Wireless</dt><dd>Bluetooth 4.0 or newer for wireless robots (most laptops, or any USB dongle)</dd></div>
+          <div><dt>Helper</dt><dd>Python 3 for the Bluetooth helper. S.P.I.D.E.R. installs the one package it needs.</dd></div>
+          <div><dt>Boards</dt><dd>ESP32-S3 and ESP32-C6 board presets</dd></div>
+        </dl>
+        <p>Windows may warn that the app is from an unknown publisher until releases are code-signed. Choose <strong>More info</strong>, then <strong>Run anyway</strong>.</p>
+        <p>The first time it starts, S.P.I.D.E.R. asks you to accept its <a href="../spider/USER_AGREEMENT.txt">user agreement</a>.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ===================================================== OWNERSHIP -->
+  <section class="sec" id="built">
+    <div class="split">
+      <div class="copy">
+        <p class="eyebrow">How it is built</p>
+        <h2>Clean to ship</h2>
+        <p>S.P.I.D.E.R. is proprietary software built only on permissively licensed parts: Godot (MIT), .NET (MIT) and Roslyn (MIT). A licence guard runs on every build and stops it if a dependency could force the code open or limit selling it.</p>
+        <p>The ESP32 flasher, Bluetooth link, editor checks, robot protocol and control deck are written from scratch.</p>
+      </div>
+      <dl class="spec">
+        <div><dt>Language</dt><dd>C# on .NET, Python, C++, MicroPython</dd></div>
+        <div><dt>Engine</dt><dd>Godot 4.7 (MIT)</dd></div>
+        <div><dt>Firmware</dt><dd>MicroPython (MIT), ESP-IDF (Apache-2.0)</dd></div>
+        <div><dt>Bluetooth</dt><dd>bleak (MIT) in your own Python</dd></div>
+        <div><dt>Tests</dt><dd>Headless suite: flasher against an emulated boot ROM, protocol, linters, licence rule</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===================================================== VIDEOS -->
+  <section class="sec" id="videos">
+    <div class="sec-head small">
+      <div>
+        <p class="eyebrow">Watch</p>
+        <h2>Videos</h2>
+      </div>
+      <a class="btn pending" data-link="youtube" data-off="YouTube channel" data-on="YouTube channel ↗"><span data-label>YouTube channel</span></a>
+    </div>
+    <div class="vlist" data-videos="spider">
+      <p class="empty">Walkthrough videos are on the way. Until then, the tutorials above show every step with screenshots.</p>
+    </div>
+  </section>
+
+  <!-- ===================================================== HELP -->
+  <section class="sec" id="help">
+    <div class="contact edge chamfer">
+      <div>
+        <p class="eyebrow">Support</p>
+        <h2>Something not working?</h2>
+        <p>Check the troubleshooting section at the end of each tutorial first. If that does not fix it, send a report: it goes straight to my issue tracker.</p>
+      </div>
+      <div class="links">
+        <a class="link pending" data-report="spider-bug.yml" data-off="opens with the first release" data-on="Report a S.P.I.D.E.R. problem ↗"><span>Bug</span><b data-label>opens with the first release</b></a>
+        <a class="link" href="../tutorials/esp32-s3-servo-ble.html#troubleshooting"><span>Fixes</span><b>Troubleshooting</b></a>
+        <a class="link" href="../support.html"><span>Support</span><b>How reports work</b></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- chrome:foot -->
+<footer class="foot wrap">
+  <nav aria-label="Footer">
+    <a href="../index.html#work">Work</a>
+    <a href="../projects/spider.html">S.P.I.D.E.R.</a>
+    <a href="../projects/dont-stop-walking.html">Don't Stop Walking</a>
+    <a href="../projects/robots.html">Robots</a>
+    <a href="../projects/3d.html">3D</a>
+    <a href="../downloads.html">Downloads</a>
+    <a href="../support.html">Report a problem</a>
+    <a href="../hire.html">Hire me</a>
+    <a class="pending" data-link="patreon">Patreon</a>
+    <a class="pending" data-link="youtube">YouTube</a>
+    <a class="pending" data-link="instagram">Instagram</a>
+    <a class="pending" data-link="tiktok">TikTok</a>
+    <a data-link="github" href="https://github.com/Omart19">GitHub</a>
+    <a href="../privacy.html">Privacy</a>
+    <a class="pending" data-link="ebay">eBay shop</a>
+  </nav>
+  <div class="legal">
+    <span>© <span data-year>2026</span> OMART19 · all rights reserved</span>
+    <span>Designed and built by hand</span>
+  </div>
+</footer>
+
+<dialog id="viewer" aria-label="Screenshot">
+  <img id="viewer-img" alt="">
+  <p id="viewer-cap"></p>
+</dialog>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+<!-- /chrome:foot -->
+</body>
+</html>

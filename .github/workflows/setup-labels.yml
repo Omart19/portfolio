@@ -1,0 +1,30 @@
+# One-time setup: creates the labels the report forms use (GitHub skips labels that do not exist).
+# Run it from the repository's Actions tab: "Set up labels" > "Run workflow". Safe to run again.
+name: Set up labels
+
+on:
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create or update labels
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          add() { gh label create "$1" --repo "$REPO" --color "$2" --description "$3" --force; }
+          add spider        FF1F3D "S.P.I.D.E.R."
+          add game          7B2FBE "Don't Stop Walking"
+          add robots        2BE38F "Robot builds and tutorials"
+          add website       5319E7 "This website"
+          add idea          0E8A16 "Ideas and requests"
+          add bug           D73A4A "Something is broken"
+          add help          FBCA04 "Asking for help"
+          add rate-limited  B60205 "Closed by the report guard"
+          add new-account   FBCA04 "Reporter's account is less than a week old"

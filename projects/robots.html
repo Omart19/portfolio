@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- chrome:head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<!-- /chrome:head -->
+<title>Robot Builds · OMART19</title>
+<meta name="description" content="Robot builds by OMART19: ESP32 boards, servos and Bluetooth, driven from S.P.I.D.E.R. Parts lists, wiring sheets and step-by-step tutorials.">
+</head>
+<body data-page="work">
+
+<!-- chrome:bar -->
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Oscar: home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 2h24l6 6v24l-6 6H8l-6-6V8z" fill="none" stroke="#ff1f3d" stroke-width="2.5"/><path d="M13 12h14v16H13z" fill="none" stroke="#f0ebf1" stroke-width="2.5"/><path d="M27 12 13 28" stroke="#ff1f3d" stroke-width="2.5"/></svg>
+      <b>OSCAR</b>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="../index.html#work" data-nav="work" aria-current="page">Work</a>
+      <a href="../downloads.html" data-nav="downloads">Downloads</a>
+      <a href="../support.html" data-nav="support">Support</a>
+      <a href="../hire.html" data-nav="hire">Hire me</a>
+    </nav>
+    <div class="status" aria-label="Status">
+      <span class="led">Building</span>
+      <span class="clock-wrap">LOCAL <span data-clock>--:--:--</span></span>
+    </div>
+  </div>
+</header>
+<!-- /chrome:bar -->
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">OMART19</a><span aria-hidden="true">/</span><a href="../index.html#work">Work</a><span aria-hidden="true">/</span><span>Robot builds</span></nav>
+
+  <header class="page-hero">
+    <div>
+      <p class="eyebrow">Hardware · robots</p>
+      <h1>Robot <span>builds</span></h1>
+      <p class="lead">The robots S.P.I.D.E.R. was made for. Each one starts as a build sheet, gets wired on the bench, and is driven from the dashboard over Bluetooth. Every build comes with its parts list and a tested guide.</p>
+      <div class="facts">
+        <span class="chip live">On the bench</span>
+        <span class="chip">ESP32-S3 · ESP32-C6</span>
+        <span class="chip">MicroPython · ESP-IDF</span>
+        <span class="chip">Bluetooth LE</span>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#parts">Parts list</a>
+        <a class="btn" href="spider.html#how-to">Build guides <span class="arrow">→</span></a>
+        <a class="btn pending" data-link="ebay" data-off="eBay shop coming soon" data-on="Get parts on eBay ↗"><span data-label>eBay shop coming soon</span></a>
+      </div>
+    </div>
+    <figure class="feed">
+      <div class="corners">
+        <button class="shot screen" type="button" data-full="../assets/tutorials/esp32-s3-servo-ble/13-robot-panel-sweep.png" data-caption="Build 01: the servo sweeping, with its live 3D twin">
+          <img src="../assets/tutorials/esp32-s3-servo-ble/13-robot-panel-sweep.png" alt="The servo robot's screen in S.P.I.D.E.R.: the servo sweeping with its live 3D twin">
+        </button>
+      </div>
+      <figcaption><span class="rec">Build 01 · live</span><span>Servo test rig</span></figcaption>
+    </figure>
+  </header>
+
+  <!-- ===================================================== BUILD 01 -->
+  <section class="sec tight" id="servo-rig">
+    <div class="sec-head small">
+      <div>
+        <p class="eyebrow">Build 01 · running</p>
+        <h2>Servo test rig</h2>
+      </div>
+      <p>The first robot: one servo on an ESP32-S3, powered from a breadboard module, connected to S.P.I.D.E.R. over Bluetooth with no pairing.</p>
+    </div>
+    <div class="split">
+      <div class="gallery two">
+        <figure class="wide">
+          <button class="shot" type="button" data-full="../assets/tutorials/esp32-s3-servo-ble/12-robot-screen.png" data-caption="Its robot screen: gauges, live 3D twin, camera and telemetry">
+            <img src="../assets/tutorials/esp32-s3-servo-ble/12-robot-screen.png" alt="The servo robot's full screen in S.P.I.D.E.R. with gauges, 3D twin, camera and telemetry" loading="lazy">
+          </button>
+          <figcaption>Its robot screen</figcaption>
+        </figure>
+        <figure>
+          <button class="shot" type="button" data-full="../assets/tutorials/control-deck-and-controllers/02-servo-deck.png" data-caption="The controls the servo robot asks for">
+            <img src="../assets/tutorials/control-deck-and-controllers/02-servo-deck.png" alt="The servo robot's deck: angle slider, Center, Sweep, Stop, Release, speed" loading="lazy">
+          </button>
+          <figcaption>Its control deck</figcaption>
+        </figure>
+        <figure>
+          <button class="shot" type="button" data-full="../assets/tutorials/control-deck-and-controllers/03-sweep-follows-telemetry.png" data-caption="Sweeping: the 3D twin follows the servo's telemetry">
+            <img src="../assets/tutorials/control-deck-and-controllers/03-sweep-follows-telemetry.png" alt="The deck sweeping the servo while its 3D twin follows the telemetry" loading="lazy">
+          </button>
+          <figcaption>Twin follows telemetry</figcaption>
+        </figure>
+      </div>
+      <div class="panel edge chamfer"><div class="inner chamfer">
+        <h3>Spec sheet</h3>
+        <dl class="spec">
+          <div><dt>Board</dt><dd>ESP32-S3 (YD-ESP32-S3 N8R2)</dd></div>
+          <div><dt>Servo</dt><dd>MG90S or SG90, signal on GPIO 4</dd></div>
+          <div><dt>Power</dt><dd>Breadboard module at 5 V, ground shared with the board</dd></div>
+          <div><dt>Link</dt><dd>Bluetooth LE to S.P.I.D.E.R., back online about 5 s after a reset</dd></div>
+          <div><dt>Firmware</dt><dd>MicroPython with my robot link and servo script</dd></div>
+        </dl>
+        <p>The servo follows the dashboard slider live, sweeps, centres and lets go. A <strong>Check signal</strong> button makes the board measure the pulse on its own pin and sense whether a wire is attached, so wiring faults show up on screen.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ===================================================== PARTS -->
+  <section class="sec" id="parts">
+    <div class="sec-head small">
+      <div>
+        <p class="eyebrow">Build 01 · bill of materials</p>
+        <h2>Parts list</h2>
+      </div>
+      <p>Everything on the bench for the servo rig, plus a PC with Bluetooth 4.0 or newer.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Part</th><th>Qty</th><th>Where to get it</th></tr></thead>
+        <tbody data-parts="servoRig">
+          <tr><td><strong>ESP32-S3 dev board</strong><br>YD-ESP32-S3 N8R2 or any ESP32-S3-WROOM-1 board, USB-C</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
+          <tr><td><strong>Micro servo</strong><br>MG90S (metal gear) or SG90 (plastic gear), 4.8-6 V</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
+          <tr><td><strong>Breadboard power module</strong><br>MB102 type, set to 5 V</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
+          <tr><td><strong>DC power adapter</strong><br>6.5-12 V, 1 A or more, barrel plug for the power module</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
+          <tr><td><strong>Breadboard</strong><br>830-point full size</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
+          <tr><td><strong>Jumper wires</strong><br>Male to male, 10 cm and 20 cm</td><td class="mono">4+</td><td><span class="off">link coming</span></td></tr>
+          <tr><td><strong>USB-C data cable</strong><br>Must carry data, not only charge</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
+          <tr><td><strong>Soldering iron and solder</strong><br>To solder the board's pin headers (they ship loose)</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="contact edge chamfer gap-top" data-when="ebay" hidden>
+      <div>
+        <p class="eyebrow">Shop</p>
+        <h2>Get the parts</h2>
+        <p>Parts for these builds are in my eBay tech shop.</p>
+      </div>
+      <div class="links">
+        <a class="link" data-link="ebay"><span>eBay</span><b>Open my shop ↗</b></a>
+      </div>
+    </div>
+    <p class="note gap-top" data-unless="ebay">An eBay store with parts and kits for these builds is on the way. Until then, every part above is a common hobby electronics part sold by most electronics shops and online marketplaces.</p>
+  </section>
+
+  <section class="sec tight" id="guides">
+    <p class="note">Step-by-step build guides (wiring, flashing, Bluetooth and controls) live with S.P.I.D.E.R.: <a href="spider.html#how-to">S.P.I.D.E.R. › How-to</a>.</p>
+  </section>
+
+  <!-- ===================================================== NEXT -->
+  <section class="sec" id="next">
+    <div class="sec-head small">
+      <div>
+        <p class="eyebrow">In the works</p>
+        <h2>Next builds</h2>
+      </div>
+      <p>Each one already runs as a virtual robot in S.P.I.D.E.R., so its screens and controls are ready before the hardware is.</p>
+    </div>
+    <div class="cards three">
+      <article class="card edge chamfer"><div class="inner chamfer">
+        <div class="pic"><img src="../assets/img/spider-virtual.jpg" alt="The Control Deck for a virtual walking robot" loading="lazy"></div>
+        <p class="label">Build 02</p>
+        <h3>Four-legged walker</h3>
+        <p>A four-legged robot on hobby servos. Its virtual version already has a walk toggle, joystick steering and speed control in S.P.I.D.E.R.</p>
+        <span class="chip">Designing</span>
+      </div></article>
+      <article class="card edge chamfer"><div class="inner chamfer">
+        <div class="pic"><img src="../assets/tutorials/control-deck-and-controllers/11-virtual-robot-deck.png" alt="A virtual robot's deck in S.P.I.D.E.R." loading="lazy"></div>
+        <p class="label">Build 03</p>
+        <h3>Six-legged walker</h3>
+        <p>A six-legged robot. Its virtual version is in S.P.I.D.E.R. now, for building its screens and controls first.</p>
+        <span class="chip">Designing</span>
+      </div></article>
+      <article class="card edge chamfer"><div class="inner chamfer">
+        <div class="pic"><img src="../assets/img/spider-deck.jpg" alt="The S.P.I.D.E.R. command center" loading="lazy"></div>
+        <p class="label">Build 04</p>
+        <h3>Drone</h3>
+        <p>A flying build. Its virtual version is in S.P.I.D.E.R. now, with telemetry on its robot screen.</p>
+        <span class="chip">Designing</span>
+      </div></article>
+    </div>
+  </section>
+
+  <!-- ===================================================== VIDEOS -->
+  <section class="sec" id="videos">
+    <div class="sec-head small">
+      <div>
+        <p class="eyebrow">Watch</p>
+        <h2>Build videos</h2>
+      </div>
+      <a class="btn pending" data-link="youtube" data-off="YouTube channel" data-on="YouTube channel ↗"><span data-label>YouTube channel</span></a>
+    </div>
+    <div class="vlist" data-videos="robots">
+      <p class="empty">Bench videos of each build are on the way.</p>
+    </div>
+  </section>
+
+  <!-- ===================================================== HELP -->
+  <section class="sec" id="help">
+    <div class="contact edge chamfer">
+      <div>
+        <p class="eyebrow">Support</p>
+        <h2>Stuck on a build?</h2>
+        <p>Most problems are power or a missing shared ground: the troubleshooting guide walks through them in order. If you are still stuck, ask for help with your board, wiring and what you see.</p>
+      </div>
+      <div class="links">
+        <a class="link" href="../tutorials/esp32-s3-servo-ble.html#the-servo-does-not-move"><span>Fixes</span><b>The servo does not move</b></a>
+        <a class="link pending" data-report="robot-build.yml" data-off="opens with the first release" data-on="Ask for build help ↗"><span>Help</span><b data-label>opens with the first release</b></a>
+        <a class="link pending" data-link="ebay" data-off="coming soon" data-on="My tech shop ↗"><span>eBay</span><b data-label>coming soon</b></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- chrome:foot -->
+<footer class="foot wrap">
+  <nav aria-label="Footer">
+    <a href="../index.html#work">Work</a>
+    <a href="../projects/spider.html">S.P.I.D.E.R.</a>
+    <a href="../projects/dont-stop-walking.html">Don't Stop Walking</a>
+    <a href="../projects/robots.html">Robots</a>
+    <a href="../projects/3d.html">3D</a>
+    <a href="../downloads.html">Downloads</a>
+    <a href="../support.html">Report a problem</a>
+    <a href="../hire.html">Hire me</a>
+    <a class="pending" data-link="patreon">Patreon</a>
+    <a class="pending" data-link="youtube">YouTube</a>
+    <a class="pending" data-link="instagram">Instagram</a>
+    <a class="pending" data-link="tiktok">TikTok</a>
+    <a data-link="github" href="https://github.com/Omart19">GitHub</a>
+    <a href="../privacy.html">Privacy</a>
+    <a class="pending" data-link="ebay">eBay shop</a>
+  </nav>
+  <div class="legal">
+    <span>© <span data-year>2026</span> OMART19 · all rights reserved</span>
+    <span>Designed and built by hand</span>
+  </div>
+</footer>
+
+<dialog id="viewer" aria-label="Screenshot">
+  <img id="viewer-img" alt="">
+  <p id="viewer-cap"></p>
+</dialog>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+<!-- /chrome:foot -->
+</body>
+</html>

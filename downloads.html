@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- chrome:head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<!-- /chrome:head -->
+<title>Downloads · OMART19</title>
+<meta name="description" content="Download S.P.I.D.E.R., find Don't Stop Walking on Steam, and get the firmware for the robot builds.">
+</head>
+<body data-page="downloads">
+
+<!-- chrome:bar -->
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Oscar: home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 2h24l6 6v24l-6 6H8l-6-6V8z" fill="none" stroke="#ff1f3d" stroke-width="2.5"/><path d="M13 12h14v16H13z" fill="none" stroke="#f0ebf1" stroke-width="2.5"/><path d="M27 12 13 28" stroke="#ff1f3d" stroke-width="2.5"/></svg>
+      <b>OSCAR</b>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="index.html#work" data-nav="work">Work</a>
+      <a href="downloads.html" data-nav="downloads" aria-current="page">Downloads</a>
+      <a href="support.html" data-nav="support">Support</a>
+      <a href="hire.html" data-nav="hire">Hire me</a>
+    </nav>
+    <div class="status" aria-label="Status">
+      <span class="led">Building</span>
+      <span class="clock-wrap">LOCAL <span data-clock>--:--:--</span></span>
+    </div>
+  </div>
+</header>
+<!-- /chrome:bar -->
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">OMART19</a><span aria-hidden="true">/</span><span>Downloads</span></nav>
+
+  <header class="page-hero solo">
+    <div>
+      <p class="eyebrow">Releases</p>
+      <h1>Downloads</h1>
+      <p class="lead">Official builds only come from this page and my GitHub releases. The newest version shows up here by itself as soon as it is published.</p>
+    </div>
+  </header>
+
+  <!-- ===================================================== SPIDER -->
+  <section id="spider">
+    <div class="sec-head small">
+      <div>
+        <p class="eyebrow">Software · robotics</p>
+        <h2>S.P.I.D.E.R.</h2>
+      </div>
+      <p><a href="projects/spider.html">What it is and what it does →</a></p>
+    </div>
+    <div class="split">
+      <div class="dl edge chamfer" data-download="spider" data-none="There is no public download yet. S.P.I.D.E.R. is in early access: the first build will appear here as soon as it is released.">
+        <div class="inner chamfer">
+          <div class="dl-top"><h3>S.P.I.D.E.R.</h3><span class="chip" data-dl-chip>Checking</span></div>
+          <div class="dl-meta" data-dl-meta hidden><span>Version <b data-dl-version></b></span><span>Released <b data-dl-date></b></span></div>
+          <p class="dl-msg" data-dl-msg>Looking for the latest release...</p>
+          <div class="cta">
+            <a class="btn primary pending" data-dl-file="windows-x86_64" data-off="Windows: not released yet"><span data-label>Windows: not released yet</span></a>
+            <a class="btn pending" data-dl-file="linux-x86_64" data-off="Linux: not released yet"><span data-label>Linux: not released yet</span></a>
+          </div>
+          <details class="dl-hashes" data-dl-hashes hidden>
+            <summary>Check a download by hand (SHA-256)</summary>
+            <dl data-dl-hashlist></dl>
+          </details>
+          <pre class="dl-notes" data-dl-notes hidden></pre>
+          <details class="dl-older" data-dl-older hidden>
+            <summary>Older versions <span data-dl-older-count></span></summary>
+            <p class="dl-msg">Older versions stay here so you can go back if you need to. They do not get fixes, so use the newest one unless you need an older one; once installed, S.P.I.D.E.R. offers the newest by itself.</p>
+            <ol class="dl-older-list" data-dl-older-list></ol>
+            <button class="btn" type="button" data-dl-older-more hidden>Show all older versions</button>
+            <p><a class="link" data-dl-releases target="_blank" rel="noopener">Every release on GitHub ↗</a></p>
+          </details>
+        </div>
+      </div>
+      <div class="panel edge chamfer"><div class="inner chamfer">
+        <h3>Install</h3>
+        <ol class="steps-list">
+          <li><strong>Windows:</strong> unzip the download into a folder of your own, such as <strong>Documents\SPIDER</strong>, and start <strong>SPIDER.exe</strong>. If Windows says the publisher is unknown, choose <strong>More info</strong>, then <strong>Run anyway</strong>. Releases are not code-signed yet.</li>
+          <li><strong>Linux:</strong> unpack the <strong>.tar.gz</strong> into a folder of your own (<code>tar -xzf SPIDER-*.tar.gz</code>) and start <strong>SPIDER.x86_64</strong>.</li>
+          <li>For wireless robots, install <strong>Python 3</strong> from python.org. S.P.I.D.E.R. adds the one package it needs when you switch Bluetooth on.</li>
+          <li>Follow the <a href="projects/spider.html#how-to">how-to guides</a> to connect your first board.</li>
+        </ol>
+        <dl class="spec">
+          <div><dt>System</dt><dd>Windows 10 or 11, 64-bit · Linux, 64-bit (x86_64)</dd></div>
+          <div><dt>Wireless</dt><dd>Bluetooth 4.0 or newer</dd></div>
+          <div><dt>Boards</dt><dd>ESP32-S3, ESP32-C6</dd></div>
+        </dl>
+        <p class="note">S.P.I.D.E.R. asks you to accept its <a href="spider/USER_AGREEMENT.txt">user agreement</a> the first time it starts. You can read it before you download.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ===================================================== GAME -->
+  <section class="sec" id="dont-stop-walking">
+    <div class="sec-head small">
+      <div>
+        <p class="eyebrow">Game · co-op survival</p>
+        <h2>Don't Stop Walking</h2>
+      </div>
+      <p><a href="projects/dont-stop-walking.html">Screenshots, gameplay and features →</a></p>
+    </div>
+    <div class="get">
+      <div class="get-row">
+        <h3>Steam</h3>
+        <p class="what">Windows · solo or online co-op for up to 6 players</p>
+        <span class="chip hot">Coming soon</span>
+        <p class="how"><a class="pending" data-link="steam" data-off="Store page coming soon" data-on="Wishlist on Steam ↗">Store page coming soon</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== ROBOTS -->
+  <section class="sec" id="robots">
+    <div class="sec-head small">
+      <div>
+        <p class="eyebrow">Hardware · robots</p>
+        <h2>Robot firmware</h2>
+      </div>
+      <p><a href="projects/robots.html">Builds and parts lists →</a></p>
+    </div>
+    <div class="get">
+      <div class="get-row">
+        <h3>Robot scripts</h3>
+        <p class="what">The servo robot, the ESP32 controller and the Bluetooth link client, for MicroPython</p>
+        <span class="chip">Included</span>
+        <p class="how">Inside S.P.I.D.E.R., folder <span class="mono">firmware/micropython</span></p>
+      </div>
+      <div class="get-row">
+        <h3>MicroPython</h3>
+        <p class="what">The board firmware the tutorials use (MIT licence)</p>
+        <span class="chip live">Free</span>
+        <p class="how"><a href="https://micropython.org/download/ESP32_GENERIC_S3/" target="_blank" rel="noopener">micropython.org ↗</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tight">
+    <p class="note">Something wrong with a download? A broken link, a file that will not start, or a virus warning: <a href="support.html">report it</a> and include the version number.</p>
+  </section>
+</main>
+
+<!-- chrome:foot -->
+<footer class="foot wrap">
+  <nav aria-label="Footer">
+    <a href="index.html#work">Work</a>
+    <a href="projects/spider.html">S.P.I.D.E.R.</a>
+    <a href="projects/dont-stop-walking.html">Don't Stop Walking</a>
+    <a href="projects/robots.html">Robots</a>
+    <a href="projects/3d.html">3D</a>
+    <a href="downloads.html">Downloads</a>
+    <a href="support.html">Report a problem</a>
+    <a href="hire.html">Hire me</a>
+    <a class="pending" data-link="patreon">Patreon</a>
+    <a class="pending" data-link="youtube">YouTube</a>
+    <a class="pending" data-link="instagram">Instagram</a>
+    <a class="pending" data-link="tiktok">TikTok</a>
+    <a data-link="github" href="https://github.com/Omart19">GitHub</a>
+    <a href="privacy.html">Privacy</a>
+    <a class="pending" data-link="ebay">eBay shop</a>
+  </nav>
+  <div class="legal">
+    <span>© <span data-year>2026</span> OMART19 · all rights reserved</span>
+    <span>Designed and built by hand</span>
+  </div>
+</footer>
+
+<dialog id="viewer" aria-label="Screenshot">
+  <img id="viewer-img" alt="">
+  <p id="viewer-cap"></p>
+</dialog>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<!-- /chrome:foot -->
+</body>
+</html>

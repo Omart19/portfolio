@@ -1,0 +1,70 @@
+# Report guard: stops one account from flooding the issue tracker.
+#   - more than MAX_PER_DAY reports in 24 hours -> the extra report is closed and locked, with a note
+#   - more than MAX_OPEN open reports at once   -> the new report is closed, with a note
+#   - account younger than NEW_ACCOUNT_DAYS     -> labelled "new-account" for a manual look
+# You, members and collaborators are never limited.
+# Uses only GitHub's own "gh" tool that comes with the runner: no third-party actions.
+name: Report guard
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+concurrency:
+  group: report-guard-${{ github.event.issue.user.login }}
+  cancel-in-progress: false
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check this account's recent reports
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          AUTHOR: ${{ github.event.issue.user.login }}
+          NUMBER: ${{ github.event.issue.number }}
+          ASSOCIATION: ${{ github.event.issue.author_association }}
+          MAX_PER_DAY: "3"
+          MAX_OPEN: "5"
+          NEW_ACCOUNT_DAYS: "7"
+        run: |
+          set -euo pipefail
+          case "$ASSOCIATION" in
+            OWNER|MEMBER|COLLABORATOR) echo "Trusted reporter: no limits."; exit 0 ;;
+          esac
+
+          close_with() {
+            gh label create rate-limited --repo "$REPO" --color B60205 --description "Closed by the report guard" --force > /dev/null
+            gh issue edit "$NUMBER" --repo "$REPO" --add-label rate-limited
+            gh issue close "$NUMBER" --repo "$REPO" --reason "not planned" --comment "$1"
+          }
+
+          since=$(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+          today=$(gh api -X GET "repos/$REPO/issues" -f creator="$AUTHOR" -f state=all -f since="$since" -f per_page=100 \
+            --jq "[.[] | select(.pull_request == null and .created_at >= \"$since\")] | length")
+          echo "Reports from $AUTHOR in the last 24 hours: $today"
+          if [ "$today" -gt "$MAX_PER_DAY" ]; then
+            close_with "Thanks for the report. This account has sent more than $MAX_PER_DAY reports in the last 24 hours, so this one was closed automatically. If it is a different problem, please send it again tomorrow, or add it as a comment on one of your open reports."
+            gh issue lock "$NUMBER" --repo "$REPO"
+            exit 0
+          fi
+
+          open=$(gh api -X GET "repos/$REPO/issues" -f creator="$AUTHOR" -f state=open -f per_page=100 \
+            --jq "[.[] | select(.pull_request == null)] | length")
+          echo "Open reports from $AUTHOR: $open"
+          if [ "$open" -gt "$MAX_OPEN" ]; then
+            close_with "Thanks for the report. This account already has $MAX_OPEN open reports, so this one was closed automatically. Once some of them are resolved, please send it again, or add it as a comment on one of your open reports."
+            exit 0
+          fi
+
+          created=$(gh api "users/$AUTHOR" --jq .created_at)
+          age_days=$(( ( $(date -u +%s) - $(date -u -d "$created" +%s) ) / 86400 ))
+          echo "Account age: $age_days days"
+          if [ "$age_days" -lt "$NEW_ACCOUNT_DAYS" ]; then
+            gh label create new-account --repo "$REPO" --color FBCA04 --description "Reporter's account is less than a week old" --force > /dev/null
+            gh issue edit "$NUMBER" --repo "$REPO" --add-label new-account
+          fi

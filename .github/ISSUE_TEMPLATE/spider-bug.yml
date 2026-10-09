@@ -1,0 +1,87 @@
+name: S.P.I.D.E.R. problem
+description: Something in S.P.I.D.E.R. crashed, failed or shows the wrong thing.
+title: "[S.P.I.D.E.R.] "
+labels: ["spider", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. **Reports are public:** do not paste emails, passwords, or network and Bluetooth addresses.
+        Fair use: 3 reports per account per day, 5 open at a time. Extra reports are closed automatically.
+  - type: input
+    id: version
+    attributes:
+      label: S.P.I.D.E.R. version
+      description: In S.P.I.D.E.R., open Help > About and copy the first line (it names the exact build). Or the version from the zip file's name.
+      placeholder: "S.P.I.D.E.R. 0.4.0 (build 12c11d8 2026-10-09)"
+    validations:
+      required: true
+  - type: dropdown
+    id: system
+    attributes:
+      label: System
+      options:
+        - Windows 11
+        - Windows 10
+        - Linux
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where in the app
+      options:
+        - Flash Bay (flashing a board)
+        - Link Hub / Bluetooth / connecting a robot
+        - Control Deck or game controllers
+        - Robot screens / 3D twin
+        - Code Forge (the editor)
+        - Serial Monitor
+        - Neural Lab
+        - Bridge
+        - Layouts, windows or settings
+        - Somewhere else
+    validations:
+      required: true
+  - type: input
+    id: board
+    attributes:
+      label: Board and parts, if any
+      placeholder: "ESP32-S3 (YD-ESP32-S3 N8R2), MG90S servo"
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you saw, including any error message word for word.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to make it happen again
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: Paste the end of the newest file in %APPDATA%\SPIDER\logs. Blank out any addresses first.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before sending
+      options:
+        - label: I removed personal details (emails, passwords, network and Bluetooth addresses).
+          required: true
+        - label: I searched the open reports for the same problem.
+          required: true

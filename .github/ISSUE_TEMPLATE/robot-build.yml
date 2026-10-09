@@ -1,0 +1,73 @@
+name: Robot build or tutorial help
+description: Stuck on a tutorial step, a part that does not match, or a robot that will not move.
+title: "[Build] "
+labels: ["robots", "help"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Most hardware problems are power or a missing shared ground. Please work through
+        [The servo does not move](https://omart19.github.io/portfolio/tutorials/esp32-s3-servo-ble.html#the-servo-does-not-move) first.
+        **Reports are public:** do not paste emails or network and Bluetooth addresses.
+  - type: dropdown
+    id: guide
+    attributes:
+      label: Which guide
+      options:
+        - "Tutorial 1: ESP32-S3 servo over Bluetooth"
+        - "Tutorial 2: Control Deck and controllers"
+        - A robot build without a tutorial
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: step
+    attributes:
+      label: Which step
+      placeholder: "Step 9, Upload the link client"
+  - type: input
+    id: board
+    attributes:
+      label: Board
+      placeholder: "YD-ESP32-S3 N8R2"
+    validations:
+      required: true
+  - type: dropdown
+    id: power
+    attributes:
+      label: How the servo is powered
+      options:
+        - From the board (5Vin, IN-OUT pad closed)
+        - Breadboard power module
+        - Batteries
+        - Bench power supply
+        - Not sure
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: What you already tried
+  - type: input
+    id: diag
+    attributes:
+      label: Check signal reply
+      description: If you pressed Check signal in the Control Deck, paste its reply.
+  - type: textarea
+    id: photo
+    attributes:
+      label: Wiring photo
+      description: A clear photo of the board and wires, from above. This helps most.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before sending
+      options:
+        - label: I worked through the troubleshooting section of the tutorial.
+          required: true
+        - label: I removed personal details from this report.
+          required: true

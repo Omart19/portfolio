@@ -1,0 +1,26 @@
+name: Idea or request
+description: A feature, a robot build, or a tutorial you would like to see.
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: dropdown
+    id: product
+    attributes:
+      label: For
+      options:
+        - S.P.I.D.E.R.
+        - Don't Stop Walking
+        - Robot builds and tutorials
+        - This website
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What it would let you do
