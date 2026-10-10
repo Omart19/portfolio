@@ -1,0 +1,5 @@
+# S.P.I.D.E.R.'s update information is signed byte for byte: git must never change its line endings,
+# or installed copies refuse it (the signature would no longer match).
+spider/latest.json -text
+spider/latest.json.sig -text
+spider/releases.json -text
