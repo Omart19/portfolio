@@ -30,7 +30,7 @@ site shows "coming soon" instead.
 | `downloads.spider` | The signed release file the download box reads (see *Downloads*) |
 | `hireFormEndpoint` | The employer form (see *Hire form*) |
 | `videos` | Video cards on the game, S.P.I.D.E.R. and robots pages. YouTube links get a thumbnail. |
-| `parts.servoRig` | The robot parts list, with a shop link per part |
+| `parts.servoRig` | The robot parts list: a product link per part, or none. How-to: [PARTS-LIST.md](PARTS-LIST.md) |
 
 ## Downloads and S.P.I.D.E.R. updates
 S.P.I.D.E.R.'s release tool (in the SPIDER repository, see its `docs/RELEASING.md`) builds the Windows and

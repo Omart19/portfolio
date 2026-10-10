@@ -54,7 +54,9 @@ window.SITE = {
     robots: []
   },
 
-  // Robot parts and where to get them. Put a shop link in url ("" shows "link coming").
+  // Robot parts lists (Robots page). How to add parts and links: PARTS-LIST.md.
+  //   part, detail, qty: what it is. url: that exact product's page (https://...), or "" for no link.
+  //   label: optional link text (default: the store's name). affiliate: true if the link earns you money.
   parts: {
     servoRig: [
       { part: "ESP32-S3 dev board", detail: "YD-ESP32-S3 N8R2 or any ESP32-S3-WROOM-1 board, USB-C", qty: "1", url: "" },

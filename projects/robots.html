@@ -53,7 +53,6 @@
       <div class="cta">
         <a class="btn primary" href="#parts">Parts list</a>
         <a class="btn" href="spider.html#how-to">Build guides <span class="arrow">→</span></a>
-        <a class="btn pending" data-link="ebay" data-off="eBay shop coming soon" data-on="Get parts on eBay ↗"><span data-label>eBay shop coming soon</span></a>
       </div>
     </div>
     <figure class="feed">
@@ -121,30 +120,21 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Part</th><th>Qty</th><th>Where to get it</th></tr></thead>
+        <thead><tr><th>Part</th><th>Qty</th><th hidden>Where to get it</th></tr></thead>
         <tbody data-parts="servoRig">
-          <tr><td><strong>ESP32-S3 dev board</strong><br>YD-ESP32-S3 N8R2 or any ESP32-S3-WROOM-1 board, USB-C</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
-          <tr><td><strong>Micro servo</strong><br>MG90S (metal gear) or SG90 (plastic gear), 4.8-6 V</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
-          <tr><td><strong>Breadboard power module</strong><br>MB102 type, set to 5 V</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
-          <tr><td><strong>DC power adapter</strong><br>6.5-12 V, 1 A or more, barrel plug for the power module</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
-          <tr><td><strong>Breadboard</strong><br>830-point full size</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
-          <tr><td><strong>Jumper wires</strong><br>Male to male, 10 cm and 20 cm</td><td class="mono">4+</td><td><span class="off">link coming</span></td></tr>
-          <tr><td><strong>USB-C data cable</strong><br>Must carry data, not only charge</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
-          <tr><td><strong>Soldering iron and solder</strong><br>To solder the board's pin headers (they ship loose)</td><td class="mono">1</td><td><span class="off">link coming</span></td></tr>
+          <tr><td><strong>ESP32-S3 dev board</strong><br>YD-ESP32-S3 N8R2 or any ESP32-S3-WROOM-1 board, USB-C</td><td class="mono">1</td></tr>
+          <tr><td><strong>Micro servo</strong><br>MG90S (metal gear) or SG90 (plastic gear), 4.8-6 V</td><td class="mono">1</td></tr>
+          <tr><td><strong>Breadboard power module</strong><br>MB102 type, set to 5 V</td><td class="mono">1</td></tr>
+          <tr><td><strong>DC power adapter</strong><br>6.5-12 V, 1 A or more, barrel plug for the power module</td><td class="mono">1</td></tr>
+          <tr><td><strong>Breadboard</strong><br>830-point full size</td><td class="mono">1</td></tr>
+          <tr><td><strong>Jumper wires</strong><br>Male to male, 10 cm and 20 cm</td><td class="mono">4+</td></tr>
+          <tr><td><strong>USB-C data cable</strong><br>Must carry data, not only charge</td><td class="mono">1</td></tr>
+          <tr><td><strong>Soldering iron and solder</strong><br>To solder the board's pin headers (they ship loose)</td><td class="mono">1</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="contact edge chamfer gap-top" data-when="ebay" hidden>
-      <div>
-        <p class="eyebrow">Shop</p>
-        <h2>Get the parts</h2>
-        <p>Parts for these builds are in my eBay tech shop.</p>
-      </div>
-      <div class="links">
-        <a class="link" data-link="ebay"><span>eBay</span><b>Open my shop ↗</b></a>
-      </div>
-    </div>
-    <p class="note gap-top" data-unless="ebay">An eBay store with parts and kits for these builds is on the way. Until then, every part above is a common hobby electronics part sold by most electronics shops and online marketplaces.</p>
+    <p class="note gap-top">Every part above is a common hobby electronics part, sold by most electronics shops and online marketplaces.</p>
+    <p class="note gap-top" data-parts-affiliate="servoRig" hidden>Links marked (affiliate) are affiliate links: I may earn a small commission if you buy through them, at no extra cost to you.</p>
   </section>
 
   <section class="sec tight" id="guides">

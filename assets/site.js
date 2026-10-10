@@ -222,9 +222,26 @@
   });
 
   // ---------------------------------------------------------------- parts lists
+  // From SITE.parts in config.js (how to edit them: PARTS-LIST.md). A part links only to its own product page;
+  // without a url it shows a dash, and when no part has one the "Where to get it" column is left out.
+  var stores = [["amazon.", "Amazon"], ["ebay.", "eBay"], ["aliexpress.", "AliExpress"], ["adafruit.", "Adafruit"],
+    ["sparkfun.", "SparkFun"], ["digikey.", "DigiKey"], ["mouser.", "Mouser"], ["pololu.", "Pololu"], ["seeedstudio.", "Seeed Studio"],
+    ["espressif.", "Espressif"], ["microcenter.", "Micro Center"], ["temu.", "Temu"]];
+  function storeName(url) {
+    var host = "";
+    try { host = new URL(url).hostname.toLowerCase(); } catch (e) { return "Buy"; }
+    for (var i = 0; i < stores.length; i++) if (host.indexOf(stores[i][0]) >= 0) return stores[i][1];
+    return "Buy";
+  }
   $$("[data-parts]").forEach(function (tbody) {
-    var list = (SITE.parts || {})[tbody.dataset.parts] || [];
+    var key = tbody.dataset.parts;
+    var list = (SITE.parts || {})[key] || [];
     if (!list.length) return;
+    var linkOk = function (p) { return p && /^https:\/\/[^\s"<>]+$/i.test(p.url || ""); };
+    var anyLink = list.some(linkOk), anyAffiliate = false;
+    var table = tbody.closest("table");
+    var whereHead = table && table.querySelector("thead th:last-child");
+    if (whereHead) whereHead.hidden = !anyLink;
     tbody.textContent = "";
     list.forEach(function (p) {
       var tr = document.createElement("tr");
@@ -233,25 +250,24 @@
       if (p.detail) { name.appendChild(document.createElement("br")); name.appendChild(document.createTextNode(p.detail)); }
       tr.appendChild(name);
       tr.appendChild(el("td", "mono", p.qty || "1"));
-      var where = el("td");
-      if (p.url) {
-        var a = el("a", "", "Get it ↗");
-        a.href = p.url;
-        a.target = "_blank";
-        a.rel = "noopener";
-        where.appendChild(a);
-      } else if (SITE.ebay) {
-        var shop = el("a", "", "Check my eBay shop ↗");
-        shop.href = SITE.ebay;
-        shop.target = "_blank";
-        shop.rel = "noopener";
-        where.appendChild(shop);
-      } else {
-        where.appendChild(el("span", "off", "link coming"));
+      if (anyLink) {
+        var where = el("td");
+        if (linkOk(p)) {
+          var a = el("a", "", (p.label || storeName(p.url)) + " ↗");
+          a.href = p.url;
+          a.target = "_blank";
+          a.rel = p.affiliate ? "noopener sponsored" : "noopener";
+          where.appendChild(a);
+          if (p.affiliate) { anyAffiliate = true; where.appendChild(el("span", "off", " (affiliate)")); }
+        } else {
+          where.appendChild(el("span", "off", "—"));
+        }
+        tr.appendChild(where);
       }
-      tr.appendChild(where);
       tbody.appendChild(tr);
     });
+    // the disclosure under the table shows only when a link earns money
+    $$("[data-parts-affiliate]").forEach(function (n) { if (n.dataset.partsAffiliate === key) n.hidden = !anyAffiliate; });
   });
 
   // ---------------------------------------------------------------- employer form
