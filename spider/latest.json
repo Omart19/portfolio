@@ -1,0 +1,23 @@
+{
+  "format": 1,
+  "product": "spider",
+  "version": "0.1.0",
+  "published": "2026-10-09T23:04:59Z",
+  "notes": "Added:\n- Code Forge: C#, Python and C\u002B\u002B editor with live problem checking, and an Explorer for your workspace.\n- Flash Bay: flash ESP32 boards without extra tools, write auto-connect settings, upload MicroPython scripts.\n- Serial Monitor, and Link Hub: robots connect over Wi-Fi, USB or this PC\u0027s own Bluetooth LE.\n- Robot screens with a real-size 3D twin, telemetry graphs, packets and logs; the MG90S servo is built in.\n- Control Deck: on-screen controls for each robot, gamepads and ESP32 controllers, Python / C# / C\u002B\u002B deck scripts.\n- Neural Lab: robot brains, generated for your robot or loaded from fruit-fly connectome data with credit kept.\n- Packages: share robot setups as .spider files, each item with its own licence.\n- Virtual robots and a virtual servo, to try every screen without hardware.\n- Signed updates: S.P.I.D.E.R. offers new versions and checks every download before installing.\n- User agreement, shown on first start and again when it changes.",
+  "files": [
+    {
+      "platform": "windows-x86_64",
+      "name": "SPIDER-0.1.0-windows-x86_64.zip",
+      "url": "https://github.com/Omart19/portfolio/releases/download/spider-v0.1.0/SPIDER-0.1.0-windows-x86_64.zip",
+      "size": 84200421,
+      "sha256": "2d712499b44ecd700ed58b1ff7ce85fb70fdaa7c2ed80c6ea4676191bfb1c9a1"
+    },
+    {
+      "platform": "linux-x86_64",
+      "name": "SPIDER-0.1.0-linux-x86_64.tar.gz",
+      "url": "https://github.com/Omart19/portfolio/releases/download/spider-v0.1.0/SPIDER-0.1.0-linux-x86_64.tar.gz",
+      "size": 73817712,
+      "sha256": "09eacd174bdb4270501fe8e64cc3233fc3e1ee7c5161c0bdad4ac95918e8f130"
+    }
+  ]
+}
