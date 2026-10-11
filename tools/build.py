@@ -116,6 +116,15 @@ TUTORIALS = [
         "card": "03-robot-screen-own-model.png",
         "drop": ["For S.P.I.D.E.R.'s built-in models (owner only)", "Licences"],
     },
+    {
+        "slug": "robot-dog-leg",
+        "short": "Robot dog leg: model to board",
+        "eyebrow": "Tutorial · S.P.I.D.E.R. · Hardware + 3D",
+        "lead": "Export a two-servo robot leg from Blender and give it to S.P.I.D.E.R., so its 3D twin bends where the real leg bends. Then flash an ESP32-S3 with the leg's code and drive it over your PC's own Bluetooth.",
+        "facts": ["About 30 minutes", "ESP32-S3 + 2 × MG90S", "Blender", "Tested on real hardware"],
+        "card": "15-robot-screen-pose.png",
+        "drop": ["14. Re-run this tutorial automatically", "The built-in model (owner only)"],
+    },
 ]
 
 PAGE = """<!doctype html>
