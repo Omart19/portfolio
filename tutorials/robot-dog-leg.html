@@ -65,7 +65,7 @@
         <li><a href="#7-flash-micropython">7. Flash MicroPython</a></li>
         <li><a href="#8-put-the-dog-leg-code-on-the-board">8. Put the dog leg code on the board</a></li>
         <li><a href="#9-connect-over-bluetooth">9. Connect over Bluetooth</a></li>
-        <li><a href="#10-home-the-servos-then-fit-the-leg">10. Home the servos, then fit the leg</a></li>
+        <li><a href="#10-calibrate-and-home-the-servos-then-fit-the-leg">10. Calibrate and home the servos, then fit the leg</a></li>
         <li><a href="#11-drive-the-leg">11. Drive the leg</a></li>
         <li><a href="#12-watch-the-board-over-usb">12. Watch the board over USB</a></li>
         <li><a href="#13-tune-the-walk">13. Tune the walk</a></li>
@@ -354,7 +354,7 @@ and the board starts advertising as SPIDER-LEG.</p>
 from now on.</p>
 <p><img loading="lazy" alt="Link Hub: SPIDER-LEG connected over Bluetooth LE, the profile below it" src="../assets/tutorials/robot-dog-leg/11-link-hub-bluetooth.png" /></p>
 <p>Because the board's name matches the profile, its robot screen opens with <strong>your</strong> model and joint map.</p>
-<h2 id="10-home-the-servos-then-fit-the-leg">10. Home the servos, then fit the leg</h2>
+<h2 id="10-calibrate-and-home-the-servos-then-fit-the-leg">10. Calibrate and home the servos, then fit the leg</h2>
 <p>The leg's <strong>home pose</strong> is the model's rest pose: <strong>hip 0</strong> (upper leg level) and <strong>knee 180</strong> (lower leg folded
 back along the upper leg). The board starts there. Higher hip angles lift the upper leg; lower knee angles open the
 knee:</p>
@@ -404,11 +404,59 @@ knee:</p>
 </table></div>
 <p><img loading="lazy" alt="Hip 0 (home, level), hip 45, hip 90 (straight up), with the knee folded" src="../assets/tutorials/robot-dog-leg/12-hip-poses.png" /></p>
 <p><img loading="lazy" alt="Knee 180 (home, folded), knee 90 (straight up), knee 0 (straight out)" src="../assets/tutorials/robot-dog-leg/13-knee-poses.png" /></p>
-<p>Make the real leg match it once:</p>
+<h3 id="calibrate-each-servo">Calibrate each servo</h3>
+<p>Every MG90S is a little different. With the standard pulses (0° = 0.5 ms, 90° = 1.5 ms, 180° = 2.5 ms) many turn a
+few degrees past 0 and past 180, and their middle can be a degree or two off: a hip told 88 that is really at 90 is
+normal. It is the servo, not the code. To be sure, send <code>diag hip</code>: the board measures the pulse really leaving its
+pin, and <code>pulse 1500 us (should be 50 Hz, 1500 us) - signal OK</code> at 90 means the board sends exactly what it should.</p>
+<p>So calibrate each servo once. Put a horn on it (or a mark on its gear) so you can see its angle; a protractor helps.</p>
+<ol>
+<li>Move the hip with its slider until the horn is <strong>really at 90</strong>, and note the angle on screen, for example 88.</li>
+<li>The same for <strong>really 0</strong> and <strong>really 180</strong>, for example 3 and 176.</li>
+<li>Send them in the robot screen's command box: <code>cal hip {"at0": 3, "at90": 88, "at180": 176}</code>. The board answers
+   with the pulses it saved: <code>saved hip: 0 deg = 533 us, 90 deg = 1478 us, 180 deg = 2455 us</code>.</li>
+<li>The same for the knee: <code>cal knee {"at0": ..., "at90": ..., "at180": ...}</code>.</li>
+</ol>
+<p>From then on 0, 90 and 180 on screen are 0, 90 and 180 on the bench, and every angle in between follows, while the
+3D twin keeps showing the angle you asked for. The calibration is saved on the board (<code>servo_cal.json</code>): it survives
+restarts and new uploads of the code, but not <strong>Erase whole chip</strong>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cal hip</code></td>
+<td>Show the hip's calibration</td>
+</tr>
+<tr>
+<td><code>cal hip {"at90": 88}</code></td>
+<td>Change one point only: here the middle</td>
+</tr>
+<tr>
+<td><code>pulse hip 2450</code></td>
+<td>A raw pulse in microseconds, for a servo that cannot reach 0 or 180 with its slider; any angle goes back to normal</td>
+</tr>
+<tr>
+<td><code>cal hip {"min_us": 560, "mid_us": 1480, "max_us": 2440}</code></td>
+<td>Set the pulses for 0, 90 and 180 directly (the ones you found with <code>pulse</code>)</td>
+</tr>
+<tr>
+<td><code>cal hip reset</code></td>
+<td>Back to 500 / 1500 / 2500 µs</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="fit-the-leg">Fit the leg</h3>
 <ol>
 <li>Press <strong>Center</strong> (Control Deck), or send <code>center</code>. Both servos go home.</li>
 <li>Fit the upper leg onto the hip servo's gear <strong>level</strong>, and the lower leg onto the knee servo's gear <strong>folded back
    over it</strong>.</li>
+<li>The gear's teeth only let a part sit every few degrees. If the upper leg is not quite level at home, move the hip
+   until it is, and make that angle its 0: for example <code>cal hip {"at0": 2}</code>. The same for the knee's 180.</li>
 </ol>
 <p>Now home is the same pose on the bench and on screen.</p>
 <h2 id="11-drive-the-leg">11. Drive the leg</h2>
@@ -465,6 +513,10 @@ and the telemetry follow:</p>
 <tr>
 <td><code>diag</code>, <code>diag hip</code>, <code>diag knee</code></td>
 <td>Measure the signal really leaving a servo pin</td>
+</tr>
+<tr>
+<td><code>cal hip {"at0": 3, "at90": 88, "at180": 176}</code>, <code>pulse hip 1500</code></td>
+<td>Calibrate a servo (step 10)</td>
 </tr>
 </tbody>
 </table></div>
@@ -579,8 +631,12 @@ board, <strong>Tools &gt; Virtual robots... &gt; DOG-LEG</strong> answers them t
 <td><strong>Check signals</strong> (or <code>diag knee</code>): if its signal is right, the problem is that servo's wiring or power.</td>
 </tr>
 <tr>
+<td><strong>A servo turns past 0 or 180, or its middle is a little off</strong></td>
+<td>Normal for an MG90S: calibrate it (step 10), <code>cal hip {"at0": ..., "at90": ..., "at180": ...}</code>. <code>diag hip</code> shows the board's pulses are exact.</td>
+</tr>
+<tr>
 <td><strong>The twin and the real leg disagree</strong></td>
-<td>Home both servos and refit the leg: upper leg level, lower leg folded (step 10).</td>
+<td>Calibrate both servos, home them and refit the leg: upper leg level, lower leg folded (step 10).</td>
 </tr>
 <tr>
 <td><strong>The leg hits the stand during the walk</strong></td>

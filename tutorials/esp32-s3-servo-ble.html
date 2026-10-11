@@ -343,10 +343,21 @@ read <code>ble</code> instead of <code>local</code> and <code>sim</code>.</em></
 <td><code>speed 120</code></td>
 <td>Degrees per second for single moves (10 to 1000; the Control Deck's <strong>Speed</strong> slider sets 30 to 600)</td>
 </tr>
+<tr>
+<td>Command box</td>
+<td><code>cal {"at0": 3, "at90": 88, "at180": 176}</code></td>
+<td>Calibrates the servo: the angles at which the horn is <em>really</em> at 0, 90 and 180 (see below)</td>
+</tr>
 </tbody>
 </table></div>
 <p>The servo's speed is in degrees per second, so the robot screen leaves out the 0 to 3 <strong>Speed</strong> slider that walking
 robots have next to <strong>Walk</strong>.</p>
+<p><strong>Calibrate it once.</strong> Every MG90S is a little different: with the standard pulses many turn a few degrees past 0 and
+180, and their middle can be a degree or two off. Move the slider until the horn is really at 0, 90 and 180, note the
+angles, and send them: <code>cal {"at0": 3, "at90": 88, "at180": 176}</code>. The board saves the servo's own pulses
+(<code>servo_cal.json</code>, kept through restarts and uploads) and answers with them. <code>cal</code> shows them, <code>cal reset</code> goes back to
+the defaults, and <code>pulse 2450</code> sends a raw pulse for a servo that cannot reach an end with its slider (then
+<code>cal {"min_us": ..., "mid_us": ..., "max_us": ...}</code>).</p>
 <p>While sweeping, the label reads <em>(sweeping)</em> and the telemetry table shows the live angle:</p>
 <p><img loading="lazy" alt="Sweeping" src="../assets/tutorials/esp32-s3-servo-ble/13-robot-panel-sweep.png" /></p>
 <p>The <strong>Telemetry</strong> tab streams 4 times a second: <code>servo.angle</code>, <code>servo.target</code>, <code>servo.sweep</code>, <code>servo.attached</code>,
@@ -532,8 +543,8 @@ on the board directly. Plain desktop Python still runs on the PC.</p>
 <td>The servo's current spikes are pulling down USB power. Use Option B. Never power it from 3V3.</td>
 </tr>
 <tr>
-<td><strong>The servo buzzes at the end of its travel</strong></td>
-<td>Some MG90S units cannot reach the full 0.5-2.5 ms range. Narrow <code>MIN_US</code> / <code>MAX_US</code> in the script, e.g. 600 / 2400.</td>
+<td><strong>The servo buzzes at the end of its travel, turns past 0 or 180, or its middle is off</strong></td>
+<td>Some MG90S units cannot use the full 0.5-2.5 ms range, and each one's middle differs a little. Calibrate it: <code>cal {"at0": 3, "at90": 88, "at180": 176}</code> (step 11).</td>
 </tr>
 <tr>
 <td><strong>The LED stays dark</strong></td>
@@ -602,8 +613,7 @@ on the board directly. Plain desktop Python still runs on the PC.</p>
 <p>Press <strong>Release</strong> only when you want the servo limp: it cuts the signal on purpose. Any angle, or <strong>Center</strong>, turns
 the signal back on.</p>
 <p><strong>SG90 instead of MG90S:</strong> both work unchanged. Same 50 Hz signal, 0.5-2.5 ms pulses and 4.8-6 V. The SG90 has
-plastic gears and less torque. If it buzzes at the ends of its travel, narrow <code>MIN_US</code> / <code>MAX_US</code> in the script
-(e.g. 500 / 2400).</p>
+plastic gears and less torque. If it buzzes at the ends of its travel, calibrate it with <code>cal</code> (step 11).</p>
     </article>
   </div>
 </main>
