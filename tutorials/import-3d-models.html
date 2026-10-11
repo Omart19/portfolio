@@ -75,7 +75,7 @@ use <strong>your own model</strong> instead: how to prepare it in Blender so its
 your robot in S.P.I.D.E.R., and share it with others.</p>
 <p>The example is the MG90S micro servo from the <a href="esp32-s3-servo-ble.html">ESP32-S3 servo tutorial</a>, modelled in
 Blender in millimetres with a bone that turns its output gear. Everything here was run on 2026-10-09 with
-S.P.I.D.E.R.'s <strong>virtual servo</strong> (<strong>Tools &gt; Spawn a virtual servo</strong>), which sends the same joint as the real board.
+S.P.I.D.E.R.'s <strong>virtual servo</strong> (<strong>Tools &gt; Virtual robots...</strong>, <code>SERVO-1</code>), which sends the same joint as the real board.
 Network addresses are blacked out in the screenshots.</p>
 <h2 id="1-how-the-3d-twin-works">1. How the 3D twin works</h2>
 <ul>
@@ -227,9 +227,14 @@ own axis: pick it in step 6.</p>
 </tbody>
 </table></div>
 <p>Changes apply at once: an open robot screen reloads the model.</p>
+<p>No hardware yet? Press <strong>Start a virtual one</strong> on the profile. A pretend robot connects under the profile's
+<strong>Matches robot</strong> name, so its screen uses this profile's model, scale and joints. Servo, dog leg, hexapod and drone
+profiles move like their own kind; any other kind (a rover, an arm) walks like the quadruped for now.
+<strong>Tools &gt; Virtual robots...</strong> lists every built-in robot and one per profile, to start several at once.</p>
+<p><img loading="lazy" alt="The Virtual robots window: built-in robots and one per robot profile" src="../assets/tutorials/import-3d-models/06-virtual-robots.png" /></p>
 <p><img loading="lazy" alt="A robot profile for the servo model" src="../assets/tutorials/import-3d-models/02-link-hub-profile.png" /></p>
 <h2 id="7-check-it">7. Check it</h2>
-<p>Connect the robot, or use <strong>Tools &gt; Spawn a virtual servo</strong>. Its robot screen opens with your model in the
+<p>Connect the robot, or start its virtual one (above). Its robot screen opens with your model in the
 <strong>TWIN</strong> view:</p>
 <ul>
 <li><strong>Drag</strong> to orbit, <strong>scroll</strong> to zoom, <strong>F</strong> to stop or start following the robot.</li>
