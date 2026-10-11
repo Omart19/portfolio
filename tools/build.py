@@ -10,6 +10,9 @@ What it does
   2. Turns S.P.I.D.E.R.'s Markdown tutorials (../SPIDER/docs/tutorials) into tutorials/*.html and copies their
      screenshots into assets/tutorials/. Repo-only links become plain text and seller photos are left out.
      The guides are only reached from the S.P.I.D.E.R. page (projects/spider.html#how-to), never from the menu.
+     First it checks every tutorial picture for addresses that can still be read (S.P.I.D.E.R.'s
+     tools/redact_screenshots.ps1 -Check, Windows OCR) and stops if one fails: the screenshot rule in
+     S.P.I.D.E.R.'s docs/tutorials/README.md. Any change to a tutorial there is rebuilt and pushed here at once.
 
 Needs Python 3 and, for step 2 only, the "markdown" package (BSD-3-Clause, permissive: pip install markdown).
 It runs on your PC only; nothing from it ships with the site.
@@ -17,7 +20,9 @@ It runs on your PC only; nothing from it ships with the site.
 import argparse
 import html
 import re
+import os
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -208,6 +213,24 @@ def drop_section(text, heading):
     return pattern.sub("", text)
 
 
+def check_screenshots(spider, folders):
+    """No sensitive information in a tutorial picture (rule 2 in S.P.I.D.E.R.'s docs/tutorials/README.md): every
+    picture that could be published must pass redact_screenshots.ps1 -Check, or nothing is built."""
+    if os.name != "nt":
+        sys.exit("The screenshot check needs Windows (its OCR): build the tutorials on Windows.")
+    script = spider / "tools" / "redact_screenshots.ps1"
+    patterns = [str(d / "*.png") for d in folders if any(d.glob("*.png"))]
+    print(f"checking {sum(len(list(d.glob('*.png'))) for d in folders)} tutorial pictures for addresses (about a minute)...")
+    run = subprocess.run(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(script), "-Check", *patterns],
+                         capture_output=True, text=True)
+    for line in run.stdout.splitlines():
+        if not line.endswith(": clean"):
+            print("  " + line)
+    if run.returncode != 0:
+        sys.exit("Not built: a tutorial picture still shows sensitive information (above). Black it out in S.P.I.D.E.R. "
+                 "(tools/redact_screenshots.ps1, then by hand), look at it, and build again.\n" + run.stderr.strip())
+
+
 def build_tutorials(spider):
     try:
         import markdown
@@ -216,6 +239,7 @@ def build_tutorials(spider):
     src_dir = spider / "docs" / "tutorials"
     if not src_dir.is_dir():
         sys.exit(f"S.P.I.D.E.R. tutorials not found in {src_dir}. Pass --spider PATH, or use --chrome.")
+    check_screenshots(spider, [src_dir / "img" / t.get("img", t["slug"]) for t in TUTORIALS])
     out_dir = ROOT / "tutorials"
     out_dir.mkdir(exist_ok=True)
 

@@ -338,8 +338,15 @@ read <code>ble</code> instead of <code>local</code> and <code>sim</code>.</em></
 <td>e.g. <code>servo {"angle": 120, "speed": 90}</code></td>
 <td>Any command, with JSON arguments</td>
 </tr>
+<tr>
+<td>Command box</td>
+<td><code>speed 120</code></td>
+<td>Degrees per second for single moves (10 to 1000; the Control Deck's <strong>Speed</strong> slider sets 30 to 600)</td>
+</tr>
 </tbody>
 </table></div>
+<p>The servo's speed is in degrees per second, so the robot screen leaves out the 0 to 3 <strong>Speed</strong> slider that walking
+robots have next to <strong>Walk</strong>.</p>
 <p>While sweeping, the label reads <em>(sweeping)</em> and the telemetry table shows the live angle:</p>
 <p><img loading="lazy" alt="Sweeping" src="../assets/tutorials/esp32-s3-servo-ble/13-robot-panel-sweep.png" /></p>
 <p>The <strong>Telemetry</strong> tab streams 4 times a second: <code>servo.angle</code>, <code>servo.target</code>, <code>servo.sweep</code>, <code>servo.attached</code>,
