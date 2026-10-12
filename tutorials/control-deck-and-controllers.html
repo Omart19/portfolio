@@ -427,8 +427,9 @@ Here its left stick drives a virtual robot's joystick:</p>
 </code></pre>
 <p>Others: <code>deck.select</code>, <code>deck.press</code>, <code>deck.stick</code>, <code>deck.add</code>, <code>deck.remove</code>, <code>deck.learn</code>, <code>deck.unmap</code>,
 <code>deck.reset</code>, <code>deck.script</code>, <code>deck.script_new</code>, <code>deck.script_stop</code>, <code>deck.flash_controller</code>, and <code>deck.input</code>
-(drives the virtual pad). Commands that move a robot need the bridge's <strong>Allow hardware actions</strong> switch, or
-SPIDER started with <code>--bridge-hw</code>.</p>
+(drives the virtual pad). Commands that move a robot are <em>hardware actions</em>: S.P.I.D.E.R. asks you first in a window
+(Allow once / Allow until S.P.I.D.E.R. closes / Deny), unless the Bridge panel's <strong>Allow hardware actions</strong> is ticked
+or SPIDER was started with <code>--bridge-hw</code>.</p>
 <hr />
 <h2 id="troubleshooting">Troubleshooting</h2>
 <div class="table-wrap"><table>
