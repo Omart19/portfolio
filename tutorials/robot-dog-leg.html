@@ -488,7 +488,7 @@ and the telemetry follow:</p>
 </tr>
 <tr>
 <td><code>pose {"hip": 60, "knee": 120}</code></td>
-<td>Both at once</td>
+<td>Both at once, arriving together</td>
 </tr>
 <tr>
 <td><code>walk</code> / <code>walk off</code> (or <code>sweep</code>)</td>
@@ -520,7 +520,7 @@ and the telemetry follow:</p>
 </tr>
 <tr>
 <td><code>hop</code></td>
-<td>Snap the whole leg straight up as fast as the servos go (below)</td>
+<td>Snap the whole leg straight up as fast as the servos go, hip and knee arriving together (below)</td>
 </tr>
 <tr>
 <td><code>play wave</code>, <code>play</code></td>
@@ -534,9 +534,15 @@ leaves out the 0 to 3 <strong>Speed</strong> slider that walking robots have nex
 <p>The angles are the angles the board <em>commands</em>. An MG90S has no position feedback, so if the twin moves and a
 servo does not, check that servo's power and signal wire (<a href="#troubleshooting">Troubleshooting</a>).</p>
 </blockquote>
+<p>Moves are smooth however busy the link is: the board moves the servos on a 50 Hz timer of its own, not between
+Bluetooth messages. A slider you drag sends about 25 angles a second, and the board glides to each one over about
+the time the next one takes to arrive, so the servo keeps moving with the slider instead of jumping and waiting. The
+board sends the joints 20 times a second and the twin glides between them too.</p>
 <h3 id="make-it-hop-animations">Make it hop: animations</h3>
 <p><strong>Hop</strong> (a button on the Control Deck, or the command <code>hop</code>) waits folded at home for 0.4 s, then snaps the whole leg
 straight up and out (hip 90, knee 0) as fast as the servos can go, holds it there for 0.6 s, and folds back home.
+The knee has twice as far to go as the hip (180 degrees against 90), so it turns at full speed and the hip at half:
+both reach the top together, in about 0.4 s.
 On the bench you see whether that snap makes the rig hop.</p>
 <p><img loading="lazy" alt="The leg at the top of the hop: hip 90, knee 0, anim hop" src="../assets/tutorials/robot-dog-leg/18-hop.png" /></p>
 <p><img loading="lazy" alt="The Control Deck's Hop button" src="../assets/tutorials/robot-dog-leg/19-deck-hop-button.png" /></p>
@@ -549,15 +555,18 @@ another.</p>
 }
 </code></pre>
 <p>Each key pose is <strong>(hip, knee, speed, hold)</strong>: the two angles, the speed in degrees per second, and the seconds to
-stay there. Both servos arrive at each pose together. Speed <strong>0</strong> means as fast as the servos go: the board commands
-1000 degrees a second, more than an MG90S manages (about 600), so the servo sets the pace.</p>
+stay there. Both servos arrive at each pose together: the one with the farthest to go turns at that speed, the
+other one slower. Speed <strong>0</strong> means as fast as the servos go: <code>TOP_SPEED</code>, 450 degrees a second, what an MG90S
+manages with a leg part on it (about 600 with nothing on it). Asking for more than a servo can do made the knee
+arrive long after the hip, so if one still lags in your hop, lower <code>TOP_SPEED</code> (step 13); if both keep up easily,
+raise it.</p>
 <p>To make your own, add a line, for example a kick that holds the upper leg at 30 and flicks the lower leg straight:</p>
 <pre><code class="language-python">    &quot;kick&quot;: [(30, 180, 120, 0.2), (30, 0, 0, 0.3), (0, 180, 90, 0)],
 </code></pre>
 <p>Upload the script again (<strong>Upload link client + config</strong>, step 8), then send <code>play kick</code>. The virtual leg plays hop
 and wave too, from its own copy of the table; your own animations run on the board.</p>
 <blockquote>
-<p><strong>A hop is violent.</strong> Both servos start at full speed at once, so keep your fingers clear, fix the stand down if
+<p><strong>A hop is violent.</strong> Both servos start at once, the knee at full speed, so keep your fingers clear, fix the stand down if
 you only want to see the leg move, and power the servos from a supply that gives at least 2 A: if the board resets
 when it hops, that is the power. Claude can make it hop through S.P.I.D.E.R.'s bridge too, and so can an ESP32
 button (<a href="bridge.html">the bridge tutorial</a>).</p>
@@ -607,6 +616,11 @@ again (no need to flash MicroPython again):</p>
 <td><code>WALK_PERIOD</code></td>
 <td>1.5</td>
 <td>Seconds per step at 240 deg/s; the <strong>Speed</strong> slider makes it faster or slower</td>
+</tr>
+<tr>
+<td><code>TOP_SPEED</code></td>
+<td>450</td>
+<td>Degrees per second for speed 0 in an animation (the hop): lower it if the knee arrives after the hip</td>
 </tr>
 <tr>
 <td><code>PINS</code></td>
@@ -661,6 +675,14 @@ board, <strong>Tools &gt; Virtual robots... &gt; DOG-LEG</strong> answers them t
 <tr>
 <td><strong>The board resets when both servos move</strong></td>
 <td>Power (step 6): a 5-6 V, 2 A supply for the servos, with a shared ground.</td>
+</tr>
+<tr>
+<td><strong>The leg moves in small jerks, or the twin stutters</strong></td>
+<td>Upload the link client and the robot script again (<strong>Upload link client + config</strong>, step 8): older uploads move the servos only between Bluetooth messages and send the joints 4 times a second.</td>
+</tr>
+<tr>
+<td><strong>In the hop the hip gets there before the knee</strong></td>
+<td>Lower <code>TOP_SPEED</code> (step 13) until they arrive together. A weak servo supply slows both (step 6).</td>
 </tr>
 <tr>
 <td><strong>One servo does not move</strong></td>
