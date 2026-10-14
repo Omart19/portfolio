@@ -130,6 +130,15 @@ TUTORIALS = [
         "card": "15-robot-screen-pose.png",
         "drop": ["14. Re-run this tutorial automatically", "The built-in model (owner only)"],
     },
+    {
+        "slug": "bridge",
+        "short": "Let Claude use S.P.I.D.E.R.",
+        "eyebrow": "Tutorial · S.P.I.D.E.R. · Bridge",
+        "lead": "Switch on S.P.I.D.E.R.'s bridge so Claude Code, a script or an ESP32 on your Wi-Fi can work in the S.P.I.D.E.R. you have open, while a window asks you before anything touches hardware.",
+        "facts": ["About 5 minutes", "Claude Code", "ESP32 over Wi-Fi", "Off until you switch it on"],
+        "card": "03-ask-window.png",
+        "drop": ["For S.P.I.D.E.R.'s releases (owner only)"],
+    },
 ]
 
 PAGE = """<!doctype html>

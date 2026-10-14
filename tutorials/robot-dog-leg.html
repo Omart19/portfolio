@@ -518,13 +518,49 @@ and the telemetry follow:</p>
 <td><code>cal hip {"at0": 3, "at90": 88, "at180": 176}</code>, <code>pulse hip 1500</code></td>
 <td>Calibrate a servo (step 10)</td>
 </tr>
+<tr>
+<td><code>hop</code></td>
+<td>Snap the whole leg straight up as fast as the servos go (below)</td>
+</tr>
+<tr>
+<td><code>play wave</code>, <code>play</code></td>
+<td>Play an animation / list them; any other command stops one</td>
+</tr>
 </tbody>
 </table></div>
-<p>The <strong>Control Deck</strong> has the same controls, plus <strong>Check signals</strong> and <strong>Speed</strong> (30 to 600 deg/s). The robot screen
+<p>The <strong>Control Deck</strong> has the same controls, plus <strong>Hop</strong>, <strong>Check signals</strong> and <strong>Speed</strong> (30 to 600 deg/s). The robot screen
 leaves out the 0 to 3 <strong>Speed</strong> slider that walking robots have next to <strong>Walk</strong>: the leg's speed is in degrees per second.</p>
 <blockquote>
 <p>The angles are the angles the board <em>commands</em>. An MG90S has no position feedback, so if the twin moves and a
 servo does not, check that servo's power and signal wire (<a href="#troubleshooting">Troubleshooting</a>).</p>
+</blockquote>
+<h3 id="make-it-hop-animations">Make it hop: animations</h3>
+<p><strong>Hop</strong> (a button on the Control Deck, or the command <code>hop</code>) waits folded at home for 0.4 s, then snaps the whole leg
+straight up and out (hip 90, knee 0) as fast as the servos can go, holds it there for 0.6 s, and folds back home.
+On the bench you see whether that snap makes the rig hop.</p>
+<p><img loading="lazy" alt="The leg at the top of the hop: hip 90, knee 0, anim hop" src="../assets/tutorials/robot-dog-leg/18-hop.png" /></p>
+<p><img loading="lazy" alt="The Control Deck's Hop button" src="../assets/tutorials/robot-dog-leg/19-deck-hop-button.png" /></p>
+<p>Hop is one of the script's <strong>animations</strong>: lists of key poses at the top of <code>dog_leg_robot.py</code>, played one after
+another.</p>
+<pre><code class="language-python">ANIMATIONS = {
+    &quot;hop&quot;: [(0, 180, 120, 0.4), (90, 0, 0, 0.6), (0, 180, 90, 0)],
+    &quot;wave&quot;: [(45, 120, 120, 0.2), (45, 60, 240, 0.1), (45, 120, 240, 0.1), (45, 60, 240, 0.1), (45, 120, 240, 0.3),
+             (0, 180, 90, 0)],
+}
+</code></pre>
+<p>Each key pose is <strong>(hip, knee, speed, hold)</strong>: the two angles, the speed in degrees per second, and the seconds to
+stay there. Both servos arrive at each pose together. Speed <strong>0</strong> means as fast as the servos go: the board commands
+1000 degrees a second, more than an MG90S manages (about 600), so the servo sets the pace.</p>
+<p>To make your own, add a line, for example a kick that holds the upper leg at 30 and flicks the lower leg straight:</p>
+<pre><code class="language-python">    &quot;kick&quot;: [(30, 180, 120, 0.2), (30, 0, 0, 0.3), (0, 180, 90, 0)],
+</code></pre>
+<p>Upload the script again (<strong>Upload link client + config</strong>, step 8), then send <code>play kick</code>. The virtual leg plays hop
+and wave too, from its own copy of the table; your own animations run on the board.</p>
+<blockquote>
+<p><strong>A hop is violent.</strong> Both servos start at full speed at once, so keep your fingers clear, fix the stand down if
+you only want to see the leg move, and power the servos from a supply that gives at least 2 A: if the board resets
+when it hops, that is the power. Claude can make it hop through S.P.I.D.E.R.'s bridge too, and so can an ESP32
+button (<a href="bridge.html">the bridge tutorial</a>).</p>
 </blockquote>
 <h2 id="12-watch-the-board-over-usb">12. Watch the board over USB</h2>
 <p>The COM port stays a serial console. In <strong>Serial Monitor</strong>, pick the same port at <strong>115200</strong> and press <strong>Open</strong>; tick
